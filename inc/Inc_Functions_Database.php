@@ -6,16 +6,6 @@
 
 
 //print_r($_SERVER['HTTP_HOST']);
-/*
-if (basename($_SERVER['REMOTE_ADDR']) == "127.0.0.1") {
-
-	define("DB_HOSTNAME","localhost");
-	define("DB_DATABASE","Sprinkles");
-	define("DB_USERNAME","root");
-	define("DB_PASSWORD",""); 
-
-}
-else */
 
 if($_SERVER['HTTP_HOST'] == 'dev.layr.es' || $_SERVER['HTTP_HOST'] == 'stg.layr.es'){	
 
@@ -23,14 +13,22 @@ if($_SERVER['HTTP_HOST'] == 'dev.layr.es' || $_SERVER['HTTP_HOST'] == 'stg.layr.
 	define("DB_DATABASE","gerardo_Layres_dev");
 	define("DB_USERNAME","gerardo_website");
 	define("DB_PASSWORD","FireSnake5");	   
-}
-else if($_SERVER['HTTP_HOST'] == 'www.layr.es')
-{
+
+} elseif($_SERVER['HTTP_HOST'] == 'www.layr.es') {
+
 	define("DB_HOSTNAME","mysql300.ixwebhosting.com");
 	define("DB_DATABASE","gerardo_Layres");
 	define("DB_USERNAME","gerardo_website");
 	define("DB_PASSWORD","FireSnake5");	
-}	
+
+}	 elseif (basename($_SERVER['REMOTE_ADDR']) == "127.0.0.1") {
+	
+	define("DB_HOSTNAME","localhost");
+	define("DB_DATABASE","Sprinkles");
+	define("DB_USERNAME","root");
+	define("DB_PASSWORD",""); 
+
+}
 
 // -------------------------------
 // -- Database functions
