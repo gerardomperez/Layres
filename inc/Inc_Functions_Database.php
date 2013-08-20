@@ -5,7 +5,7 @@
 // -------------------------------
 
 
-//print_r($_SERVER['HTTP_HOST']);
+//print_r($_SERVER['HTTP_HOST']); 
 
 if($_SERVER['HTTP_HOST'] == 'dev.layr.es' || $_SERVER['HTTP_HOST'] == 'stg.layr.es'){	
 

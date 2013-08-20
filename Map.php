@@ -90,7 +90,7 @@ if (isset($_POST["SearchQuery"])) {
  			});
 		});
 
-
+ 
 		function setHeight() {
 			var MapHeight = window.innerHeight - 100;
 			
