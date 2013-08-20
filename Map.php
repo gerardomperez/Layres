@@ -107,17 +107,15 @@ if (isset($_POST["SearchQuery"])) {
     <section class="container clearfix">
 		
        		<div class="content clearfix">
- <span  style="  float: left;     left: 227px;     position: absolute;">
+ 		<span  style="  float: left;     left: 227px;     position: absolute;">
   
       <a class="maptocenter" onclick="mapstraction.setCenterAndZoom(Home,15);">
       <img src="gfx/nearby.gif" /></a>   <a class="googlecontrol" href="#Search">
         <img src="gfx/search.gif" />
       </a>
       </span>  
-               <div id="mymap" style="width:100%; background-color:#eee; z-index:1;">
-              
-                  </div>  
-               
+      
+               <div id="mymap" style="width:100%; background-color:#eee; z-index:1;"></div>  
 			   <div class="clear"></div>
                
 			</div>
@@ -141,13 +139,16 @@ if (isset($_POST["SearchQuery"])) {
                                     <input type="radio" name="SearchType" value="Person" style="width:12px;" <?php echo $PersonChecked; ?>>Person 
                     </div>
                 </form> 
-                            	<div class="clear padding20"></div>
+                   
+                   <div class="clear padding10"></div>
                             	  
 				   <div class='ErrorMessage<?php echo $Hide_Search; ?>'><?php echo $ErrorMessage_Search; ?></div>
                    <div class='ErrorMessageHide' id='Search_ErrorMessage'></div>
                    <div align="center"><a href="Javascript:void(0);" class="button orange" id="Search_Submit">Submit</a> </div>                
                 
                 </div>
+                
+                <div class="clear padding40"></div>
                 
 			<h4 class="bottom_line regular"><?php echo $ResultsTitle; ?></h4>
 	
