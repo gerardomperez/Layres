@@ -197,7 +197,7 @@
  
 					<h1 class="regular Red bottom_line"><?php echo $LayerName; ?> </h1>
 					<div><?php echo $Description; ?></div>
-				<div class="clear"></div>
+				<div class="clear padding20"></div>
 			</header>
 			
 		<!-- /Page Title -->
