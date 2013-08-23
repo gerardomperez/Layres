@@ -1042,7 +1042,7 @@
 						  $varLocation .= "Location{$results['LocationID']} = new mxn.LatLonPoint({$results['LocationLatitude']},{$results['LocationLongitude']});";
 					  
 						  $FeedResults .= "	<div style='padding:2px;'>		
-												<span style='padding:8px 5px 19px 5px; float:left;'><img src='gfx/icons/Marker.png'></span>
+												<span style='padding:8px 5px 45px 5px; float:left;'><img src='gfx/icons/Marker.png'></span>
 												<h4 style='margin:3px 0 0 0;'>{$results['PromoTitle']} &nbsp; &nbsp; 
 													<span class='SmallFont'> 
 													<a href='#map' onclick=\"mapstraction.setCenter(Location{$results['LocationID']}, {pan:true}); mapstraction.setZoom(12)\" style='padding:8px 3px;' class='BabyBlue AlignRight'>Where?</a>
@@ -1050,8 +1050,9 @@
 												</h4>
 												<p class='SmallFont'><strong class='DarkGray'>Layer: </strong>
 												<a href='Layers.php?ID={$results['LayerID']}' class='BabyBlue'>{$results['LayerName']}</a>
-												  <br><strong class='DarkGray'>Created By:</strong> {$results['UName']} <strong class='DarkGray'>on</strong> ({$CreateDate})</p>
-											  </div>";
+												  <br><strong class='DarkGray'>Created By:</strong> {$results['UName']}</p>
+											  </div>
+											  <div class='clear'></div>";
 											  
 							// Determine how many to show				  
 							//if ($i > 4) { break; } else {  $i++; }									  
@@ -1112,7 +1113,7 @@
 				  			
 				  				
 				  		$FeedResults .= "	<div style='padding:2px;'>
-				  		<span style='padding:8px 5px 19px 5px; float:left;'>
+				  		<span style='padding:8px 5px 45px 5px; float:left;'>
 				  		{$img_src}
 				  		</span>
 				  		<h4 style='margin:3px 0 0 0;'>{$results['PromoTitle']} &nbsp; &nbsp;
@@ -1122,8 +1123,9 @@
 				  		</h4>
 				  		<p class='SmallFont'><strong class='DarkGray'>Layer: </strong>
 				  		<a href='Layers.php?ID={$results['LayerID']}' class='BabyBlue'>{$results['LayerName']}</a>
-				  		<br><strong class='DarkGray'>Created By:</strong> {$results['UName']} <strong class='DarkGray'>on</strong> ({$CreateDate})</p>
-				  		</div>";
+				  		<br><strong class='DarkGray'>Created By:</strong> {$results['UName']}</p>
+				  		</div>
+						<div class='clear'></div>";
 				  
 				  	
 				  	}
@@ -1149,11 +1151,6 @@
 		// ##########################################		
 		} elseif ($SearchType == "Layer") {
 
-
-
-
-
-
 			$sql_ActivityFeedData = "SELECT Location.LocationID, Layers.LayerID, LayerName, Promotions.CreateDate, LocationLatitude,
 			LocationLongitude, PromoTitle, Layers.UName FROM Promotions, Location_Promotions, Location, Layers
 			WHERE Location_Promotions.PromotionID = Promotions.promotionID
@@ -1161,8 +1158,6 @@
 			AND Location_Promotions.LayerID = Layers.LayerID
 			
 			AND Layers.LayerName LIKE '%$SearchQuery%' GROUP BY LayerID LIMIT 0,6";
-			
-			
 				
 			//	echo $sql_ActivityFeedData;
 				
@@ -1178,13 +1173,14 @@
 					$varLocationPoint .= ", Location{$results['LocationID']}";
 					$varLocation .= "Location{$results['LocationID']} = new mxn.LatLonPoint({$results['LocationLatitude']},{$results['LocationLongitude']});";
 			
-					$FeedResults .= "<div style='padding:2px;'>
-					
-						<p class='SmallFont' style='font-size:10pt'>{$results['LayerName']}
-				  		<a href='Layers.php?ID={$results['LayerID']}' class='BabyBlue'> See Details</a>
-				  		<br><strong class='DarkGray'>Created By:</strong> {$results['UName']} <strong class='DarkGray'>on</strong> ({$CreateDate})</p>
-				  		
-					</div>";
+					$FeedResults .= "
+						<div style='padding:2px;'>
+							<h4 style='margin:3px 0 0 0;'>{$results['LayerName']}</h4>
+							<p class='SmallFont'>Created By: <strong class='DarkGray'>{$results['UName']}</strong><br>
+							<a href='Layers.php?ID={$results['LayerID']}' class='BabyBlue'>See Details &raquo;</a>
+							</p>
+							</div>
+						<div class='clear'></div>";
 			
 							// Determine how many to show
 						//	if ($i > 11) { break; } else {  $i++; }
@@ -1206,10 +1202,6 @@
 		// ######  Default Results
 		// ##########################################			
 		} elseif ($SearchType == "Person") {
-
-			
-			
-		
 
 			$sql_ActivityFeedData = "SELECT Location.LocationID, Layers.LayerID, LayerName, Promotions.CreateDate, LocationLatitude,
 			LocationLongitude, PromoTitle, Layers.UName FROM Promotions, Location_Promotions, Location, Layers
@@ -1235,17 +1227,13 @@
 			$varLocationPoint .= ", Location{$results['LocationID']}";
 			$varLocation .= "Location{$results['LocationID']} = new mxn.LatLonPoint({$results['LocationLatitude']},{$results['LocationLongitude']});";
 		
-					$FeedResults .= "	<div style='padding:2px;'>
-			<span style='padding:8px 5px 19px 5px; float:left;'><img src='gfx/icons/Marker.png'></span>
-			<h4 style='margin:3px 0 0 0;'>{$results['PromoTitle']} &nbsp; &nbsp;
-			<span class='SmallFont'>
-			<a href='#map' onclick=\"mapstraction.setCenter(Location{$results['LocationID']}, {pan:true}); mapstraction.setZoom(12)\" style='padding:8px 3px;' class='BabyBlue AlignRight'>Where?</a>
-			</span>
-			</h4>
-			<p class='SmallFont'><strong class='DarkGray'>Layer: </strong>
-			<a href='Layers.php?ID={$results['LayerID']}' class='BabyBlue'>{$results['LayerName']}</a>
-			<br><strong class='DarkGray'>Created By:</strong> {$results['UName']} <strong class='DarkGray'>on</strong> ({$CreateDate})</p>
-			</div>";
+					$FeedResults .= "	
+						<div style='padding:2px;'>
+							<h4 style='margin:3px 0 0 0;'>Person Name &nbsp; &nbsp;</h4>
+							<p class='SmallFont'>Username: <strong class='DarkGray'>username</strong><br>
+							<a href='#'>List Layers &raquo;</a></p>
+							</div>
+						<div class='clear'></div>";
 				
 			// Determine how many to show
 						//if ($i > 7) { break; } else {  $i++; }
@@ -1278,12 +1266,12 @@
 		function most_popular_layers(){
 			
 			$SQL=Select("SELECT Layers.LayerID,LayerName 
-FROM Layers, LinkageList
-WHERE LinkageList.LayerID = Layers.LayerID
-AND Accepted = 'ok'
-GROUP BY Layers.LayerID
-ORDER BY COUNT( * ) DESC
-LIMIT 0 , 4");
+							FROM Layers, LinkageList
+							WHERE LinkageList.LayerID = Layers.LayerID
+							AND Active = 'Yes'
+							GROUP BY Layers.LayerID
+							ORDER BY COUNT( * ) DESC
+							LIMIT 0 , 4");
 			$layers='';
 	
 			foreach ($SQL as $row)
@@ -1299,12 +1287,12 @@ LIMIT 0 , 4");
 		function most_popular_layers1(){
 				
 			$SQL=Select("SELECT Layers.LayerID,LayerName
-FROM Layers, LinkageList
-WHERE LinkageList.LayerID = Layers.LayerID
-AND Accepted = 'ok'
-GROUP BY Layers.LayerID
-ORDER BY COUNT( * ) DESC
-LIMIT 4 , 4 ");
+							FROM Layers, LinkageList
+							WHERE LinkageList.LayerID = Layers.LayerID
+							AND Active = 'Yes'
+							GROUP BY Layers.LayerID
+							ORDER BY COUNT( * ) DESC
+							LIMIT 4 , 4 ");
 			$layers='';
 		
 			foreach ($SQL as $row)
