@@ -813,9 +813,7 @@
 		}
 
 	function CreateMarker($MarkerDetails) {
-		//print_r($MarkerDetails);
-	//exit;
-		
+
 		$CreateDate = date('Y/m/d G:i:s');
 		$TaskID = "";
 		$chkId="";
@@ -912,6 +910,30 @@
 
 		
 		
+	
+		if ($MarkerDetails['Reward'] == "Coupon") {
+			$sql_SaveRewardData_Coupon = "INSERT INTO Promotions_Rewards_Coupon(UName, CouponName, Coupon, ExpirationDate) ";
+			$sql_SaveRewardData_Coupon .= "VALUES ('{$_SESSION['UName']}', '{$MarkerDetails['fine_print']}','{$MarkerDetails['Coupon_msg']}', STR_TO_DATE('{$MarkerDetails['coupon_date']}','%b %d, %Y'))";
+			$Result_SaveRewardData = Insert($sql_SaveRewardData_Coupon);
+		}
+		
+		if ($MarkerDetails['Reward'] == "Message") {
+			$sql_SaveRewardData_Message = "INSERT INTO Promotions_Rewards_Information(UName, Information) ";
+			$sql_SaveRewardData_Message .= "VALUES ('{$_SESSION['UName']}', '{$MarkerDetails['reward_Confirmation']}')";
+			$Result_SaveRewardData = Insert($sql_SaveRewardData_Message);
+		}
+		
+		if ($MarkerDetails['Reward'] == "Status") {
+			$sql_SaveRewardData_Status = "INSERT INTO Promotions_Rewards_Status(UName, StatusLevel1, StatusLevel2, StatusLevel3) ";
+			$sql_SaveRewardData_Status .= "VALUES ('{$_SESSION['UName']}', '{$MarkerDetails['status_1']}', '{$MarkerDetails['status_2']}', '{$MarkerDetails['status_3']}' )";
+			$Result_SaveRewardData = Insert($sql_SaveRewardData_Status);
+		}
+		
+		// Get the TaskID
+		if ($Result_SaveRewardData) { $RewardID = $Result_SaveRewardData; }  else { $RewardID = 0; }
+		
+		
+		
 	//----------------------------------
 	//-----------  Create the Promotion
 	//----------------------------------
@@ -920,7 +942,7 @@
 	
 	   $sql_InsertPromotionsData = "INSERT INTO Promotions(UName, TaskType, TaskID, RewardType, RewardID, StartDate, EndDate,
 								  PromoTitle, TaskDescription, RewardDescription, PromoRange, CongratsMessage, CreateDate) ";
-	   $sql_InsertPromotionsData .= "VALUES ('{$_SESSION['UName']}', '{$MarkerDetails['Type']}', '{$TaskID}', '', '', now(), {$EndDate},
+	   $sql_InsertPromotionsData .= "VALUES ('{$_SESSION['UName']}', '{$MarkerDetails['Type']}', '{$TaskID}', '{$MarkerDetails['Reward']}', '{$RewardID}', now(), {$EndDate},
 								  '{$Title}','{$Message}','','Personal', '{$CongratsMessage}', Now()) "; 
 	
 	   $Result_InsertPromotionsData = Insert($sql_InsertPromotionsData);
@@ -935,6 +957,7 @@
 	   $sql_InsertPromoLocoData .= "VALUES ('$PromotionID', '{$LayerID}', '{$LocationID}', '999', 0 , now(), {$EndDate}, 0) "; 	
 	   
 	   $Result_InsertPromoLocoData = Insert($sql_InsertPromoLocoData);		
+
 	
 	   //----------------------------------
 	   //-----------  Create the CheckIn
