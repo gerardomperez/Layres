@@ -1,6 +1,7 @@
 <?php 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
+
     require_once 'Inc/Inc_Common.php';
 	require_once 'Inc/Inc_Functions_Promotions.php';
 	
@@ -49,26 +50,26 @@ ini_set('display_errors', 1);
 		<!-- START FEATURED COLUMNS -->
 		<div class="col_1_4">
 			<div class="features">
-				<h3 style="border-bottom:#666 1px solid;">Who?</h3>
-				<p>Anyone can create a layer of promotions and markers, and anyone can participate in someone else's layer.</p> 
+				<h3 style="border-bottom:#666 1px solid;">What?</h3>
+				<p>Through us, you can create a layer of markers on a map.  These markers designate special areas for you.</p>  <p>Some markers just have a note, and some are interactive allowing you to perform a task in exchange for a reward.</p> 
 			</div>
 		</div>
 		<div class="col_1_4">
 			<div class="features">
-				<h3 style="border-bottom:#666 1px solid;">What?</h3>
-				<p><a href="Map.php#Map">Your map</a> consists of the promotions and markers that you add to your map layer and those from the layers of the people you follow.</p> 
+				<h3 style="border-bottom:#666 1px solid;">Who?</h3>
+				<p>Anyone can create a layers of markers, and anyone can interact with the markers of other people's layers.</p>  <p>Some, like your favorite vendor, may even create interactive markers that offer rewards, like coupons or special messages.</p> 
 			</div>
 		</div>
 		<div class="col_1_4">
 			<div class="features">
 				<h3 style="border-bottom:#666 1px solid;">Where?</h3>
-				<p>You can <a href="Marker.php#Map">create a marker</a> anywhere in the world....and access it from anywhere in the world.</p> 
+				<p>You can <a href="Marker.php">create a marker</a> for anywhere in the world.  You can create it through an address or just create a marker at your current location.</p> 
 			</div>
 		</div>
 		<div class="col_1_4 last">
 			<div class="features">
 				<h3 style="border-bottom:#666 1px solid;">When?</h3>
-				<p>You control the timing of when your individual promotions and markers appear and disappear from your layer.</p> 
+				<p>You control the timing of when your individual promotions and markers appear and disappear from your layer. Also, see what's happening not in all the layers you follow through the "Recent Activity Feed" on <a href="Map.php#Map">your map</a> section.</p> 
 			</div>
 		</div>
 		<!-- END FEATURED COLUMNS -->
@@ -92,18 +93,13 @@ ini_set('display_errors', 1);
               
                <div class="col_1_2"> 
               <ul class="arrow_list">
-              <?php  
-            echo  $most_popular_layers=most_popular_layers();
-              ?>
+              <?php  echo  $most_popular_layers=most_popular_layers(); ?>
               </ul> </div>
               
  
              <div class="col_1_2 last"> 
             <ul class="arrow_list">
-             <?php 
-         echo  $most_popular_layers1=most_popular_layers1();
-      
-              ?>
+             <?php echo  $most_popular_layers1=most_popular_layers1(); ?>
               </ul> </div>
               </div> 				
 	
@@ -119,23 +115,23 @@ ini_set('display_errors', 1);
 		<div class="clear padding10"></div>	
 		
 		<div class="container clearfix">
+            <h2 class="regular white bottom_line">What's in it for me?</h2>
             
             <!-- START COL 1/2 -->
 			<div class="col_1_2 ">
-				<h2 class="regular white bottom_line">What's in it for me?</h2>
-				<p>People use maps all the time, including your friends, customers, and acquaintances.</p> 
-                <p>With Layr.es you can do some of the following things with your map:</p>
-					<ul class="iconic_list white">
-                        <li>Creat a map of your favorite locations</li>
-                        <li>Tell your friends where you are or have been</li>
-                        <li>Take attendance at a particular location.</li>
-                        <li>Show people where something is happening, like a party. (use it as a map to your event)</li>
-                        <li>Offer a reward to people in a particular place and at a particular time.</li>
-                        <li>Request information from people in a specific area. (like taking a poll)</li>
-                        <li>Encourage people with similar interests to come together somewhere at a particular time.</li>
-                        <li>Keep track of who visits a place multiple times. (the basis of a loyalty program)</li>
+				<h3 class="regular white">Get rewarded for being there.</h3>
+
+				<p>Users just need to go where the map shows there's an interactive marker and then "earn" the reward by completing the required task.</p>
+				<p>The task could be as simple as just "checking-in" to a place at a specific time or more involved like answering a question. Either way, 
+                it shouldn't be too complicated, and once you complete the task you'll earn the reward.</p>
+                <p>There are three types of rewards:</p>
+               		<ul class="iconic_list white">
+                        <li>Coupons </li>
+                        <li>Status</li>
+                        <li>Messages</li>
                     </ul>
-                 <p>Create an account right now and begin enjoying your maps.  You have nothing to lose!</p>
+                 
+                 <div class="clear padding10"></div>
 			</div>
 			<!-- END COL 1/2 -->
 
@@ -145,20 +141,20 @@ ini_set('display_errors', 1);
             
            
            <div class="col_1_2 last" id="why-section">
-				<h2 class="regular white bottom_line">The Promotions</h2>
-				<!--<div><a href="#"><img class="alignleft MT0" id="why1" src="images/content-img3.png" alt="img" ></a></div>-->
-                <h3 class="regular white">Task Types</h3>
-				<p>
-					Create a marker anywhere on your map. It will appear with a flag icon. The only interaction people have with them is reading the note you leave on that marker.
-				</p>
+				<h3 class="regular white">Motivate people to be there.</h3>
                 
-                <div class="clear padding10"></div>
-                
-                <!--<div><a href="#"><img class="alignleft MT0" id="why2" src="images/content-img1.png" alt="img" ></a></div>-->
-                <h3 class="regular white">Reward Types</h3>
-				<p>Users just need to go where our map shows there's a promotion and then "earn" the reward by completing the required task.</p>
-				<p>This could be as simple as checking-in to the place or more involved like answering a question. Either way, it shouldn't be too complicated, and once you complete the task you earn the reward.
-				</p>
+                <p>People use maps all the time, including your friends, customers, and acquaintances. With Layr.es you can do some of the following things with your map:</p>
+					<ul class="iconic_list white">
+                        <li>Creat a map of your favorite locations.</li>
+                        <li>Tell your friends where you are or have been.</li>
+                        <li>Take attendance at a particular location.</li>
+                        <li>Show people where something is happening, like a party. (use it as a map to your event)</li>
+                        <li>Offer a reward to people in a particular place and at a particular time.</li>
+                        <li>Request information from people in a specific area. (like taking a poll)</li>
+                        <li>Encourage people with similar interests to come together somewhere at a particular time.</li>
+                        <li>Keep track of who visits a place multiple times. (the basis of a loyalty program)</li>
+                    </ul>
+
                  <div class="clear padding10"></div>
                  
                 <!--<div><a href="#"><img class="alignleft MT0" id="why3" src="images/content-img2.png" alt="img" ></a></div>-->
