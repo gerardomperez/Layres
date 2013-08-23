@@ -1042,11 +1042,8 @@
 						  $varLocation .= "Location{$results['LocationID']} = new mxn.LatLonPoint({$results['LocationLatitude']},{$results['LocationLongitude']});";
 					  
 						  $FeedResults .= "	<div style='padding:2px;'>		
-												<span style='padding:8px 5px 45px 5px; float:left;'><img src='gfx/icons/Marker.png'></span>
+												<span style='padding:8px 5px 31px 5px; float:left;'><a href='#map' onclick=\"mapstraction.setCenter(Location{$results['LocationID']}, {pan:true}); mapstraction.setZoom(12)\" style='padding:8px 3px;' class='BabyBlue AlignRight'><img src='gfx/icons/Marker.png'></a></span>
 												<h4 style='margin:3px 0 0 0;'>{$results['PromoTitle']} &nbsp; &nbsp; 
-													<span class='SmallFont'> 
-													<a href='#map' onclick=\"mapstraction.setCenter(Location{$results['LocationID']}, {pan:true}); mapstraction.setZoom(12)\" style='padding:8px 3px;' class='BabyBlue AlignRight'>Where?</a>
-													</span>
 												</h4>
 												<p class='SmallFont'><strong class='DarkGray'>Layer: </strong>
 												<a href='Layers.php?ID={$results['LayerID']}' class='BabyBlue'>{$results['LayerName']}</a>
@@ -1113,14 +1110,10 @@
 				  			
 				  				
 				  		$FeedResults .= "	<div style='padding:2px;'>
-				  		<span style='padding:8px 5px 45px 5px; float:left;'>
-				  		{$img_src}
+				  		<span style='padding:8px 5px 31px 5px; float:left;'>
+				  		<a href='#map' onclick=\"mapstraction.setCenter(Location{$results['LocationID']}, {pan:true}); mapstraction.setZoom(12)\" style='padding:8px 3px;' class='BabyBlue AlignRight'>{$img_src}</a>
 				  		</span>
-				  		<h4 style='margin:3px 0 0 0;'>{$results['PromoTitle']} &nbsp; &nbsp;
-				  		<span class='SmallFont'>
-				  		<a href='#map' onclick=\"mapstraction.setCenter(Location{$results['LocationID']}, {pan:true}); mapstraction.setZoom(12)\" style='padding:8px 3px;' class='BabyBlue AlignRight'>Where?</a>
-				  		</span>
-				  		</h4>
+				  		<h4 style='margin:3px 0 0 0;'>{$results['PromoTitle']}</h4>
 				  		<p class='SmallFont'><strong class='DarkGray'>Layer: </strong>
 				  		<a href='Layers.php?ID={$results['LayerID']}' class='BabyBlue'>{$results['LayerName']}</a>
 				  		<br><strong class='DarkGray'>Created By:</strong> {$results['UName']}</p>
