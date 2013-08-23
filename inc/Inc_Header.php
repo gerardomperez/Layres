@@ -25,7 +25,7 @@ if (isset($_SESSION['UName'])) {
 								
 } else { 
 
-		$WelcomeMessage = "<li><a href='Registration.php' class='Yellow'>Login</a> </li> 	";	 	
+		$WelcomeMessage = "<li'><a href='Registration.php' class='Yellow'>Login</a> </li> 	";	 	
 }
 ?>
 <header class="header_bg clearfix">
