@@ -139,15 +139,11 @@
 					else { $DescriptionContent = ""; }							
 	
 				    $LocationInfo .= "	<div style='padding:2px;'>		
-										  <h4 style='margin:3px 0 0 0;'>{$results['LocationName']} &nbsp; &nbsp; 
-											  <span class='SmallFont'> 
-											  <a href='#map' onclick=\"mapstraction.setCenter(Location{$results['LocationID']}, {pan:true}); mapstraction.setZoom(12)\" style='padding:8px 3px;' class='BabyBlue AlignRight'>Where?</a>
-											  </span>
-										  </h4>";
+										  <h4 style='margin:3px 0 0 0;'>{$results['LocationName']}</h4>";
 
 					if ($results['Zip']) {
-						$LocationInfo .= "	<p class='SmallFont'>{$results['StreetAddress']} &nbsp; {$results['Zip']}</p>";
-					} else $LocationInfo .= "	<p class='SmallFont'>(Created at location)</p>";
+						$LocationInfo .= "	<p class='SmallFont'><a href='#map' onclick=\"mapstraction.setCenter(Location{$results['LocationID']}, {pan:true}); mapstraction.setZoom(12)\" style='padding:8px 3px;' class='BabyBlue'>{$results['StreetAddress']} &nbsp; {$results['Zip']}</a></p>";
+					} else $LocationInfo .= "	<p class='SmallFont'><a href='#map' onclick=\"mapstraction.setCenter(Location{$results['LocationID']}, {pan:true}); mapstraction.setZoom(12)\" style='padding:8px 3px;' class='BabyBlue'>(Created at location)</a></p>";
 				
 					$LocationInfo .= "	</div>";	   				  
 
