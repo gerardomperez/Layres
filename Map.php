@@ -123,17 +123,14 @@ if (isset($_POST["SearchQuery"])) {
 		<!-- START SIDEBAR -->
 		<div class="sidebar">
 
-			<div class="padding10"></div>
-
-
 			<div class="clear padding20"></div>
         
         
                  <div align="center">
                  <a name="Search"></a>
                  <form method="post" name="Search_FormName" id="Search_FormID" action="Map.php" style="padding:0 0 10px;">
-                    <input type="text" name="SearchQuery" value="<?php echo $SearchQuery; ?>" id="SearchQuery" style="width:100%;" placeholder="Select search type below" />
-                    <div align="center"><span class="Disappear_Small">Search Type:  </span>
+                    <input type="text" name="SearchQuery" value="<?php echo $SearchQuery; ?>" id="SearchQuery" placeholder="Select search type below" />
+                    <div align="center">
                     				<input type="radio" name="SearchType" value="Address" style="width:12px;" <?php echo $AddressChecked; ?>>Address &nbsp; 
                     				<input type="radio" name="SearchType" value="Layer" style="width:12px;" <?php echo $LayerChecked; ?>>Layer &nbsp;  
                                     <input type="radio" name="SearchType" value="Person" style="width:12px;" <?php echo $PersonChecked; ?>>Person 
