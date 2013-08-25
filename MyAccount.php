@@ -343,7 +343,8 @@
 	//--------------
 		if (isset($_GET['RemoveLayer'])) {	
 
-			$LayersIFollow_ToggleState = "opened_toggle";			
+			
+			
 			$ErrorMessage_LayersIFollow = RemoveFollowing($_GET['RemoveLayer'],$_SESSION['UName']); 
 			$Hide_LayersIFollow = "Success";
 
@@ -492,8 +493,7 @@
 					<div id='MyAccount_SubMenu' class='SmallFont'>&nbsp;
 						 <span class='AlignLeft Disappear_Small'><strong>Order By</strong>: &nbsp;  <a href='$ThisPage?OrderBy=Location#Markers' class='$LocationClass'>Location</a> &nbsp; | &nbsp; <a href='$ThisPage?OrderBy=StartDate#Markers' class='$DateClass'>Start Date</a></span>
 						 <span class='AlignRight'><strong>Show</strong>: &nbsp;  <a href='$ThisPage?Show=active#Markers' class='$ActiveClass'>Active</a> &nbsp; | &nbsp; <a href='$ThisPage?Show=expired#Markers' class='$ExpiredClass'>Expired</a></span>
-					</div>
-				";		 
+					</div>				";		 
 			
 			//--------------
 			//  Edit Promotion...else show all sponsored promotions
@@ -525,6 +525,12 @@
 <head>
 <title>Home</title>
 <?php Require 'Inc/Inc_HeaderTag.php'; ?>
+<style>
+.BabyBlue_for_layer
+{
+display:none;
+}
+</style>
 <script type="text/javascript" src="js/TotalJS.js"></script>
 <script language="javascript">
 
@@ -676,12 +682,19 @@ LayersIFollow
             
 				<div class="tabs">
 					<ul>
+						<li><a href="#Follow_Layers">Layers | Follow</a></li>
 						<li><a href="#Markers">My Layers</a></li>
                         <li><a href="#Rewards">My Check-Ins</a></li>
 					</ul>
 					<div class="clear"></div>
 					<div class="bordered_box">
-                    
+                    <div id="Follow_Layers">
+                    <div class="content_text">
+                    <?php echo $LayersFollowing; ?>
+                         <div class='ErrorMessage<?php  echo $Hide_LayersIFollow; ?>' id='LayersIFollow_ErrorMessage'><?php  echo $ErrorMessage_LayersIFollow; ?></div>
+                         
+                    </div>
+                    </div>
 						<div id="Markers">	<!--  Sponsored Promotions  -->
 							<div class="content_text">
                                     
@@ -751,19 +764,20 @@ LayersIFollow
 <!--  End "Profile" Section --> 
             
 
-<!--  Start "LayersIFollow" Section -->
+<!--  Start "LayersIFollow" Section 
+                
 			<a name="LayersIFollow" id="LayersIFollow"></a>
 			<div class="toogle_box">
-				<div class="toggle <?php echo $LayersIFollow_ToggleState; ?>"><div class="icon"></div>
+				<div class="toggle <?php // echo $LayersIFollow_ToggleState; ?>"><div class="icon"></div>
 					Layers I Follow
 				</div>
 				<div class="toggle_container">
 
                     <div id="LayersIFollow_Default">
                     
-							<?php echo $LayersFollowing; ?>
-                            <div class='ErrorMessage<?php echo $Hide_LayersIFollow; ?>' id='LayersIFollow_ErrorMessage'><?php echo $ErrorMessage_LayersIFollow; ?></div>
-                            <!--<div align="center"><a href="Javascript:void(0);" class="button orange" id="LayersIFollow_ToggleButton">Link to a Layer</a> </div>-->
+							<?php // echo $LayersFollowing; ?>
+                            <div class='ErrorMessage<?php // echo $Hide_LayersIFollow; ?>' id='LayersIFollow_ErrorMessage'><?php // echo $ErrorMessage_LayersIFollow; ?></div>
+                            <!--<div align="center"><a href="Javascript:void(0);" class="button orange" id="LayersIFollow_ToggleButton">Link to a Layer</a> </div>
                     
                     </div>
                     <div id="LayersIFollow_Hidden" class="Hide">
@@ -772,7 +786,7 @@ LayersIFollow
                             <input type="hidden" name="LayersIFollow_ToggleVariable" value="Open">
 
                                 <p><label for="LayersIFollow_LayerName">Enter the layer to follow<span>*</span></label>
-                                    <input class="inputText" type="text" name="LayersIFollow_LayerName" id="LayersIFollow_LayerName" placeholder="Layer Name*" value="<?php echo $LayersIFollow_LayerName; ?>" /></p>    
+                                    <input class="inputText" type="text" name="LayersIFollow_LayerName" id="LayersIFollow_LayerName" placeholder="Layer Name*" value="<?php // echo $LayersIFollow_LayerName; ?>" /></p>    
 
 								
                             </form>
@@ -785,7 +799,7 @@ LayersIFollow
 				</div>
             </div>
             <div class="padding20"></div>
-<!--  End "LayersIFollow" Section -->
+ End "LayersIFollow" Section -->
 
 
 <!--  Start "MyLayers" Section -->
