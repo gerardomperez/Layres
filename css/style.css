@@ -185,7 +185,7 @@ color:#FFFFFF;
 		
 /* ================= Headers ================= */
 h1 {
-	font-size:26pt;
+	font-size:22pt;
 	line-height: 30pt;
 	color:#f00;
 	text-shadow: 1px 1px 1px #999;
@@ -205,6 +205,7 @@ h2 {
 }
 h3 {
 	font-size:18px;
+	line-height:20px;
 	color:#453C34;
 }
 h4 {
@@ -275,6 +276,9 @@ p.align_center a {
 h1 strong, h2 strong, h3 strong, h4 strong, h5 strong, h6 strong {
 	font-weight:600;
 }
+.LayerDescription {
+	font-size: 13px;
+	}
 /* ================= List Styles ================= */
 ul {
 	list-style:none;
@@ -3013,6 +3017,9 @@ img.liquid {
 .main-menu li a {
 	padding:0 20px 0 0;
 	line-height:33px;
+}
+.main-menu li a.last {
+	padding:0;
 }
 .main-menu li ul li a {
 	padding-left:32px !important;
