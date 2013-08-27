@@ -90,7 +90,7 @@ if (isset($_POST["SearchQuery"])) {
  			});
 		});
 
- 
+
 		function setHeight() {
 			var MapHeight = window.innerHeight - 100;
 			
@@ -107,15 +107,17 @@ if (isset($_POST["SearchQuery"])) {
     <section class="container clearfix">
 		
        		<div class="content clearfix">
- 		<span  style="  float: left;     left: 227px;     position: absolute;">
+ <span  style="  float: left;     left: 22px; position: relative;">
   
       <a class="maptocenter" onclick="mapstraction.setCenterAndZoom(Home,15);">
       <img src="gfx/nearby.gif" /></a>   <a class="googlecontrol" href="#Search">
         <img src="gfx/search.gif" />
       </a>
       </span>  
-      
-               <div id="mymap" style="width:100%; background-color:#eee; z-index:1;"></div>  
+               <div id="mymap" style="width:100%; background-color:#eee; z-index:1;">
+              
+                  </div>  
+               
 			   <div class="clear"></div>
                
 			</div>
@@ -123,21 +125,23 @@ if (isset($_POST["SearchQuery"])) {
 		<!-- START SIDEBAR -->
 		<div class="sidebar">
 
+			<div class="padding10"></div>
+
+
 			<div class="clear padding20"></div>
         
         
                  <div align="center">
                  <a name="Search"></a>
                  <form method="post" name="Search_FormName" id="Search_FormID" action="Map.php" style="padding:0 0 10px;">
-                    <input type="text" name="SearchQuery" value="<?php echo $SearchQuery; ?>" id="SearchQuery" placeholder="Select search type below" />
-                    <div align="center">
+                    <input type="text" name="SearchQuery" value="<?php echo $SearchQuery; ?>" id="SearchQuery" style="width:100%;" placeholder="Search Query" />
+                    <div align="center"><span class="Disappear_VerySmall">Search Type:  </span>
                     				<input type="radio" name="SearchType" value="Address" style="width:12px;" <?php echo $AddressChecked; ?>>Address &nbsp; 
                     				<input type="radio" name="SearchType" value="Layer" style="width:12px;" <?php echo $LayerChecked; ?>>Layer &nbsp;  
                                     <input type="radio" name="SearchType" value="Person" style="width:12px;" <?php echo $PersonChecked; ?>>Person 
                     </div>
                 </form> 
-                   
-                   <div class="clear padding10"></div>
+                            	<div class="clear padding20"></div>
                             	  
 				   <div class='ErrorMessage<?php echo $Hide_Search; ?>'><?php echo $ErrorMessage_Search; ?></div>
                    <div class='ErrorMessageHide' id='Search_ErrorMessage'></div>
@@ -177,7 +181,7 @@ echo $val[0];
 
             
 			</div>
-	
+
           	 <div class="holder" ></div>
       
 			<div class="clear padding40"></div>

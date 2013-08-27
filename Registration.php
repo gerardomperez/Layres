@@ -12,14 +12,14 @@
 	//--------------		
 	if (isset($_GET['FB-error'])) {
 		// Sign in errors
-		if ($_GET['FB-error'] == "AccountNotLinked") { $SignIn_Message = "Your account is not linked to Facebook.  You can link your account once logged in.  Then you can log in through Facebook.";   $Hide1 = ""; }
-		if ($_GET['FB-error'] == "NoAccount") { $SignIn_Message = "No Layr.es account was found.<br>Please first create an account.";   $Hide1 = ""; }
+		if ($_GET['FB-error'] == "AccountNotLinked") { $ErrorMessage_SignIn = "Your account is not linked to Facebook.  You can link your account once logged in.  Then you can log in through Facebook.";   $Hide_SignIn = ""; }
+		if ($_GET['FB-error'] == "NoAccount") { $ErrorMessage_SignIn = "No Layr.es account was found.<br>Please first create an account.";   $Hide_SignIn = ""; }
 		
 		// Sign up errors
-		if ($_GET['FB-error'] == "NotUniqueUN") { $SignUp_Message = "Username already taken. Please choose another.";   $Hide2 = ""; }
-		if ($_GET['FB-error'] == "NotOriginalFBID") { $SignUp_Message = "You already have an account linked to FB.";   $Hide2 = ""; }
-		if ($_GET['FB-error'] == "FailedAccountCreation") { $SignUp_Message = "Something happened. Failed account creation.";   $Hide2 = ""; }				   
-		if ($_GET['FB-error'] == "NotOriginalEmail") { $SignUp_Message = "Account already exists with this email address. <br>Log in to link your account to Facebook.";   $Hide2 = ""; }
+		if ($_GET['FB-error'] == "NotUniqueUN") { $ErrorMessage_SignUp = "Username already taken. Please choose another.";   $Hide_SignUp = ""; }
+		if ($_GET['FB-error'] == "NotOriginalFBID") { $ErrorMessage_SignUp = "You already have an account linked to FB.";   $Hide_SignUp = ""; }
+		if ($_GET['FB-error'] == "FailedAccountCreation") { $ErrorMessage_SignUp = "Something happened. Failed account creation.";   $Hide_SignUp = ""; }				   
+		if ($_GET['FB-error'] == "NotOriginalEmail") { $ErrorMessage_SignUp = "Account already exists with this email address. <br>Log in to link your account to Facebook.";   $Hide_SignUp = ""; }
 		
 		  //set values for form re-submissin from cookie
 			if ($_GET['FB-error'] != "AccountNotLinked") {
@@ -65,6 +65,7 @@
 		  if (isset($_POST['FB_UserID'])) { $FB_UserID = $_POST['FB_UserID']; }
 		  if (isset($_POST['Gender'])) { $Gender = $_POST['Gender']; }
 		  if (isset($_POST['BDay'])) { $BDay = $_POST['BDay']; }
+		  if (isset($_POST['FBVerified'])) { $BDay = $_POST['FBVerified']; }
 		  
 		  // in case a space is included in Username
 		  $UName = str_replace(' ','-',$SignUp_UName);

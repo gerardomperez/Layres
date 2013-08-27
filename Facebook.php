@@ -2,6 +2,7 @@
 
     require_once 'Inc/Inc_Common.php';
 	require_once 'Inc/Inc_Functions_Profile.php';
+	require_once 'Inc/Inc_Functions_Promotions.php';
 
 	session_start();
 	
@@ -70,7 +71,7 @@ echo("The state does not match. You may be a victim of CSRF."); // <br> Request:
 		$UserDetailsArray = array('UName' => $FBUName, 'PWord' => $PWord, 'FullName' => $FullName, 'EmailAddress' => $EmailAddress, 
 								  'LocationLatitude' => $LocationCoordinates['LocationLatitude'], 'LocationLongitude' => $LocationCoordinates['LocationLongitude'], 
 								  'Zip' => $FBZip, 'JoinDate' => $JoinDate, 'LastLogin' => $LastLogin, 'IPAddress' => $IPAddress,
-								  'FB_UserID' => $FB_UserID, 'Gender' => $Gender, 'BDay' => $BDay, 'AccessToken' => $AccessToken);
+								  'FB_UserID' => $FB_UserID, 'Gender' => $Gender, 'BDay' => $BDay, 'AccessToken' => $AccessToken,'FBVerified' => 'Yes');
 
 /*
 		 //set cookie values in case we return to Registration.php due to failed submission
@@ -95,7 +96,8 @@ echo("The state does not match. You may be a victim of CSRF."); // <br> Request:
 				  echo "Redirecting....";
 			  
 				// if they are asking for an original username / email and have no matching FacebookID, create an account for them	
-				if (FB_IDMatched($FB_UserID)) {  Redirect('Registration.php?FB-error=NotOriginalFBID');  }
+				if (FB_IDMatched($FB_UserID)) {  
+					Redirect('Registration.php?FB-error=NotOriginalFBID');  }
 				 else {	
 				   if (OriginalUsername($UName)) {
 					  if (UniqueEmail($EmailAddress)) {
@@ -157,7 +159,8 @@ echo("The state does not match. You may be a victim of CSRF."); // <br> Request:
 
 			if (FB_EmailMatched($EmailAddress)) { 
 
-				if (FB_LinkAccount($FB_UserID,$EmailAddress,$Gender,$BDay,$AccessToken)) { Redirect('MyAccount.php?LinkedAccount=Successful'); }
+				if (FB_LinkAccount($FB_UserID,$EmailAddress,$Gender,$BDay,$AccessToken)) {
+					Redirect('MyAccount.php?LinkedAccount=Successful'); }
 				else { Redirect('MyAccount.php?FB-error=LinkFailed'); }
 			} else {
 

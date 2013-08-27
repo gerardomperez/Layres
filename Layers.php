@@ -78,8 +78,9 @@
 	//  Remove / Block Layer
 	//--------------
 		if (isset($_POST['UnLink'])) {	
-
-			$ErrorMessage_LayersIFollow = RemoveFollowing($_SESSION['UName'],$_POST['UnLink']);
+			
+			
+$ErrorMessage_LayersIFollow = RemoveFollowing($_POST['UnLink'],$_SESSION['UName']);
 			$Followers = GetFollowers($LayerID);
 			$Hide_LayersIFollow = "Success";
 
@@ -126,6 +127,8 @@
 				  
 				  $varLocationPoint = "var Location0";
 
+				  
+				  
 				  foreach ($Result_LocationData as $results) {	
 
 					$varLocationPoint .= ", Location{$results['LocationID']}";
@@ -152,9 +155,9 @@
 			  		$varLocationPoint .= ";";	
 			 
 		   } else { $LocationInfo = "<div align='center' style='padding:30px;'>No locations added to this layer yet.</div>"; }
-
 //#########################################################################################
 //### Promotion Data
+
 //#########################################################################################
 
 	$PromoList = ShowLayerPromos($LayerID); 	
@@ -195,7 +198,8 @@
 		<!-- Page Title -->
 			<header class="container page_info clearfix">
  
-					<h1 class="regular Red bottom_line"><?php echo $LayerName; ?> </h1>
+					<h1 class="regular Red bottom_line">
+<?php echo $LayerName; ?> </h1>
 					<div class='LayerDescription'><?php echo $Description; ?></div>
 				<div class="clear padding20"></div>
 			</header>
@@ -218,15 +222,8 @@
 		
 		<!-- START SIDEBAR -->
 		<div class="sidebar">
-        
-			<h4 class="bottom_line regular">Locations</h4>
-			<div>
-
-					<?php echo $LocationInfo; ?>          
-            
-			</div>
-            
-			<div class="clear padding10"></div>
+       
+			<div class="clear padding40"></div>
 			
 
 			<h4 class="bottom_line regular">Creator</h4>
@@ -241,7 +238,18 @@
                 </form>            
 
 			<div class="clear padding10"></div>
+			<div class='toogle_box'>
+						<div class='toggle closed_toggle NoBottomBorder'><div class='icon'></div>
+            	<h4 class="bottom_line regular">Locations</h4>
+            	</div>
+			<div style="display:none;">
+
+					<?php echo $LocationInfo; ?>          
             
+			</div>
+            
+			<div class="clear padding40"></div>
+			
 			
 			<!-- START SOCIALS -->
 			<h4 class="bottom_line regular">Sharing is caring</h4>

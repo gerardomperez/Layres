@@ -36,13 +36,22 @@
 								"LocationLatitude" => $_POST['CurrentLatitude'],
 								"LocationLongitude" => $_POST['CurrentLongitude'],
 								"LocationType" => $_POST['LocationType'], 
-								"Type" => $_POST['Type'] 
+								"Type" => $_POST['Type'] ,
+								"Reward" => $_POST['Reward'],
+								"coupon_date"=>$_POST['coupon_date'],
+								"coupon_msg"=>$_POST['coupon_msg'],
+								"fine_print"=>$_POST['fine_print'],
+								"status_1"=>$_POST['status_1'],
+								"status_2"=>$_POST['status_2'],
+								"status_3"=>$_POST['status_3'],
+								"reward_Confirmation"=>$_POST['reward_Confirmation']
+				
 								);
-
-
-		// Store for sebusequent use 
+		
+	
+		
 		setcookie('LayerID',$_POST['Marker_LayerID'],time() + (86400* 15));	  //valid for 15 days
- 
+		
 		$ErrorMessage = CreateMarker($MarkerDetails);
 
 		//var_dump($ErrorMessage);
@@ -263,7 +272,7 @@
 			  Question.removeClass("strong").addClass("Underline").addClass("BabyBlue");	
 	
 			  $("#Type").val('Marker');
-
+			  
 		   }
 		   
 		   function CheckInType() { 
@@ -284,7 +293,7 @@
 
 			  
 			  $("#Type").val('CheckIn');
-
+			  $("#Reward").val('Coupon');
 		    }	
 
 		   function QuestionType() { 
@@ -304,7 +313,7 @@
 			  CheckIn.removeClass("strong").addClass("Underline").addClass("BabyBlue");	
 
 			  $("#Type").val('Question');
-
+			  $("#Reward").val('Coupon');
 		    }							  
 
 
@@ -324,6 +333,7 @@
 
 				  var coupon = $("#Coupon");
 				  coupon.removeClass("strong").addClass("Underline").addClass("BabyBlue");
+				  $("#Reward").val('Status');
 
 			    }	
 
@@ -345,11 +355,13 @@
 
 				  var coupon = $("#Coupon");
 				  coupon.removeClass("strong").addClass("Underline").addClass("BabyBlue");
+				  
+				  $("#Reward").val('Message');
 			    }	
 
 
 		   function Coupontype() { 
-			   //  Coupon Status Message
+			   //  Coupon Status Message 
 			   //    	RewardDetails StatusDetails MessageDetails 
 				  var StatusDetails = $("#StatusDetails"); 		  
 				 var MessageDetails=$("#MessageDetails");
@@ -364,6 +376,8 @@
 
 				  var coupon = $("#Coupon");
 				  coupon.addClass("strong").removeClass("Underline").removeClass("BabyBlue");
+
+				  $("#Reward").val('Coupon');
 			    }	
 		   
 		    
@@ -478,14 +492,19 @@ if($("#RewardDetails").attr("class")=='')
 	if($("#CouponDetails").attr("class")=='')
 	{
 
-		if($("#coupon_code").val()=='')
+		if($("#coupon_date").val()=='')
 		{
 			  ErrorMessage.removeClass("ErrorMessageHide").addClass("ErrorMessage"); 
-			  ErrorMessage.text("Enter the coupon code");  
+			  ErrorMessage.text("Enter the coupon date");  
 			  return false;
 		}
-
-		
+		if($("#coupon_msg").val()=='')
+		{
+			  ErrorMessage.removeClass("ErrorMessageHide").addClass("ErrorMessage"); 
+			  ErrorMessage.text("Enter the coupon message");  
+			  return false;
+		}
+	
 }
 
 	if($("#StatusDetails").attr("class")=='')
@@ -568,7 +587,7 @@ if($("#RewardDetails").attr("class")=='')
         <input type='hidden' name="CurrentLongitude" id="CurrentLongitude" value="" />	
         <input type="hidden" name="LocationType" value="" id="LocationType" />
          <input type="hidden" name="Type" value="Marker" id="Type" />
-        <input type="hidden" name="Reward" value="Status" id="Reward" />
+        <input type="hidden" name="Reward" value="" id="Reward" />
          
 
 		<div class="col_1_3">
@@ -735,11 +754,21 @@ if($("#RewardDetails").attr("class")=='')
                 </p>
                 <div class="clear"></div>
       <div id='CouponDetails' class="">
-                <p>
-      					<label for="coupon_code"> Coupon code  <span> * </span></label>
-      					<input type="text" class="inputText" placeholder="Enter name for future reference " name="coupon_code" id="coupon_code" value="<?php echo $coupon_code; ?>">
+                		<p>
+      					<label for="coupon_date"> Expiration Date  <span> * </span></label>
+      					<input type="text" class="inputText" placeholder="Enter Expire date " name="coupon_date" id="coupon_date" value="<?php echo $coupon_date; ?>">
       					</p>
-                                         
+                       <p>
+                       <label for="coupon_msg"> Coupon message <span> *</span></label>
+                       <textarea name="coupon_msg" id="coupon_msg" placeholder="Enter a coupon message"><?php echo $coupon_msg;?></textarea>                
+                       </p>                  
+                       <p>
+                       
+                       <label for="fine_print">Fine Print</label>
+                       <textarea name="fine_print" id="fine_print" placeholder="enter optional values"><?php echo $coupon_fine;?></textarea>                
+                     
+                       </p>
+                       
       <div class="clear"></div>
 </div>
                 <div id='StatusDetails' class="Hide">

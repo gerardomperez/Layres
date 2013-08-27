@@ -60,7 +60,8 @@
 		// ------  
 		// Set results to just for layer
 		// ------  
-		if (isset($_GET['LayerID'])) {
+		else if (isset($_GET['LayerID']))
+		{
 			$PromoRange = "('All','Personal')";
 				$sql_LayerDate .= " AND Promotions.PromoRange IN {$PromoRange} AND Layers.LayerID = '{$_GET['LayerID']}' ";
 		} 
@@ -68,13 +69,15 @@
 		else {
 			$PromoRange = "('All')";
 				
-			$sql_LayerDate .= " AND Promotions.PromoRange IN {$PromoRange}";
+			$sql_LayerDate .= " AND Promotions.PromoRange IN {$PromoRange} LIMIT 0,6";
 		 }
 		
 		// ------  
   	    //Limit to a specific Marker type if requested	
 		// ------  
-		if (isset($_GET['MarkerType'])) { $sql_ActivityFeedData .= " AND Promotions.TaskType .= '{$_GET['MarkerType']}'";  }
+		if (isset($_GET['MarkerType'])) {
+			$sql_ActivityFeedData .= " AND Promotions.TaskType .= '{$_GET['MarkerType']}'";  
+		}
 
 	//	echo $sql_LayerDate;
 		

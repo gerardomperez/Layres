@@ -843,7 +843,7 @@ LayersIFollow
 				</div>
 				<div class="toggle_container">
 
-					<?php echo $LocationInfo; ?>
+					<?php // echo $LocationInfo; ?>
 			
                     <div class="padding10"></div>	
                     <div align="center"><a href="MyAccount.php?CreateLocation#Location" class="button orange">Create Location</a> </div>
