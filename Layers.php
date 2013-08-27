@@ -196,7 +196,7 @@
 			<header class="container page_info clearfix">
  
 					<h1 class="regular Red bottom_line"><?php echo $LayerName; ?> </h1>
-					<div><?php echo $Description; ?></div>
+					<div class='LayerDescription'><?php echo $Description; ?></div>
 				<div class="clear padding20"></div>
 			</header>
 			

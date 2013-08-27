@@ -3,10 +3,9 @@
 			<div class="col_2_3">
 				
 				<div class="clear padding20"></div>
-				
-				
+
 				<p>
-					&copy; Some Rights Reserved. &nbsp; <a href="Terms.php" class="Underline">Terms &amp; Conditions</a>  &nbsp; &nbsp; <a href="typography.html" target="_blank">Style Guide</a>
+					&copy; Second World Enterprises, Inc. <br />Some Rights Reserved. &nbsp; <a href="Terms.php" class="Underline">Terms &amp; Conditions</a>  &nbsp; &nbsp; <a href="typography.html" target="_blank">Style Guide</a>
 				</p>
 				
 			</div>

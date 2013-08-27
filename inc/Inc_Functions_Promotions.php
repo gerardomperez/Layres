@@ -1065,7 +1065,7 @@
 						  $varLocation .= "Location{$results['LocationID']} = new mxn.LatLonPoint({$results['LocationLatitude']},{$results['LocationLongitude']});";
 					  
 						  $FeedResults .= "	<div style='padding:2px;'>		
-												<span style='padding:8px 5px 31px 5px; float:left;'><a href='#map' onclick=\"mapstraction.setCenter(Location{$results['LocationID']}, {pan:true}); mapstraction.setZoom(12)\" style='padding:8px 3px;' class='BabyBlue AlignRight'><img src='gfx/icons/Marker.png'></a></span>
+												<span style='padding:0px 5px 31px 5px; float:left;'><a href='#map' onclick=\"mapstraction.setCenter(Location{$results['LocationID']}, {pan:true}); mapstraction.setZoom(12)\" style='padding:8px 3px;' class='BabyBlue AlignRight'><img src='gfx/icons/Marker.png'></a></span>
 												<h4 style='margin:3px 0 0 0;'>{$results['PromoTitle']} &nbsp; &nbsp; 
 												</h4>
 												<p class='SmallFont'><strong class='DarkGray'>Layer: </strong>
@@ -1133,7 +1133,7 @@
 				  			
 				  				
 				  		$FeedResults .= "	<div style='padding:2px;'>
-				  		<span style='padding:8px 5px 31px 5px; float:left;'>
+				  		<span style='padding:0px 5px 31px 5px; float:left;'>
 				  		<a href='#map' onclick=\"mapstraction.setCenter(Location{$results['LocationID']}, {pan:true}); mapstraction.setZoom(12)\" style='padding:8px 3px;' class='BabyBlue AlignRight'>{$img_src}</a>
 				  		</span>
 				  		<h4 style='margin:3px 0 0 0;'>{$results['PromoTitle']}</h4>

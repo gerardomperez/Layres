@@ -12,7 +12,7 @@ if ($ThisPage == "FAQ.php") { $FAQ_Current = "class='current'"; }
 if ($ThisPage == "Map.php") { $Map_Current = "class='current'"; }
 if ($ThisPage == "Login.php") { $Login_Current = "class='current'"; }
 if ($ThisPage == "MyAccount.php") { $MyAccount_Current = "class='current'"; }
-if ($ThisPage == "Registration.php") { $Registration_Current = "class='current Red'"; } else { $Registration_Current = "class='Red'"; }
+if ($ThisPage == "Registration.php") { $Registration_Current = "class='current Yellow last'"; } else { $Registration_Current = "class='Yellow last'"; }
 
 
 // -------------------------
@@ -25,7 +25,7 @@ if (isset($_SESSION['UName'])) {
 								
 } else { 
 
-		$WelcomeMessage = "<li'><a href='Registration.php' class='Yellow'>Login</a> </li> 	";	 	
+		$WelcomeMessage = "<li><a href='Registration.php' class='Yellow last'>Login</a> </li> 	";	 	
 }
 ?>
 <header class="header_bg clearfix">
