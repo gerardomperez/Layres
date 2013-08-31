@@ -231,7 +231,7 @@ else{
 											$(document).ready(function() {
 	$('#Marker_StartDate').datepicker();
 	$('#Marker_EndDate').datepicker();
-											});
+		$('#coupon_date').datepicker();									});
 	</script> ";
 	
  ?>

@@ -107,7 +107,7 @@ if (isset($_POST["SearchQuery"])) {
     <section class="container clearfix">
 		
        		<div class="content clearfix">
- <span  style="  float: left;     left: 22px; position: relative;">
+ <span  style="  float: right;     position: relative;     right: 60px;">
   
       <a class="maptocenter" onclick="mapstraction.setCenterAndZoom(Home,15);">
       <img src="gfx/nearby.gif" /></a>   <a class="googlecontrol" href="#Search">
@@ -135,7 +135,7 @@ if (isset($_POST["SearchQuery"])) {
                  <a name="Search"></a>
                  <form method="post" name="Search_FormName" id="Search_FormID" action="Map.php" style="padding:0 0 10px;">
                     <input type="text" name="SearchQuery" value="<?php echo $SearchQuery; ?>" id="SearchQuery" style="width:100%;" placeholder="Search Query" />
-                    <div align="center">
+                    <div align="center"><span class="Disappear_VerySmall">Search Type:  </span>
                     				<input type="radio" name="SearchType" value="Address" style="width:12px;" <?php echo $AddressChecked; ?>>Address &nbsp; 
                     				<input type="radio" name="SearchType" value="Layer" style="width:12px;" <?php echo $LayerChecked; ?>>Layer &nbsp;  
                                     <input type="radio" name="SearchType" value="Person" style="width:12px;" <?php echo $PersonChecked; ?>>Person 
@@ -168,7 +168,7 @@ echo '<input type="hidden" id="hidden_add" value="Not">';
 
 $val=explode('*/!', $ActivityFeed);
 echo $val[0];						
-// 						/echo rtrim("*/!",$ActivityFeed);
+// 	echo rtrim("*/!",$ActivityFeed);
 						}
 						
 					

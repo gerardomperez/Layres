@@ -1,6 +1,6 @@
 <?php
 
-    require_once 'inc/Inc_Common.php';
+    require_once 'Inc/Inc_Common.php';
 /*
 	function ErrorMessage($Message,$Type="") {}
 	function ShowCoupon($Message) {	}	
