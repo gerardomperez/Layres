@@ -1083,18 +1083,14 @@
 				  			$img_src="<img src='gfx/icons/Marker-Red.png'>" ;
 						  
 						  $FeedResults .= "	<div style='padding:2px;'>		
-												<span style='padding:8px 5px 19px 5px; float:left;'>
-												'.$img_src.'
-												</span>
+												<span style='padding:0px 5px 31px 5px; float:left;'><a href='#map' onclick=\"mapstraction.setCenter(Location{$results['LocationID']}, {pan:true}); mapstraction.setZoom(12)\" style='padding:8px 3px;' class='BabyBlue AlignRight'><img src='gfx/icons/Marker.png'></a></span>
 												<h4 style='margin:3px 0 0 0;'>{$results['PromoTitle']} &nbsp; &nbsp; 
-													<span class='SmallFont'> 
-													<a href='#map' onclick=\"mapstraction.setCenter(Location{$results['LocationID']}, {pan:true}); mapstraction.setZoom(12)\" style='padding:8px 3px;' class='BabyBlue AlignRight'>Where?</a>
-													</span>
 												</h4>
 												<p class='SmallFont'><strong class='DarkGray'>Layer: </strong>
 												<a href='Layers.php?ID={$results['LayerID']}' class='BabyBlue'>{$results['LayerName']}</a>
-												  <br><strong class='DarkGray'>Created By:</strong> {$results['UName']} <strong class='DarkGray'>on</strong> ({$CreateDate})</p>
-											  </div>";
+												  <br><strong class='DarkGray'>Created By:</strong> {$results['UName']}</p>
+											  </div>
+											  <div class='clear'></div>";
 											  
 							// Determine how many to show				  
 							//if ($i > 4) { break; } else {  $i++; }									  
@@ -1155,18 +1151,15 @@
 				  			
 				  				
 				  		$FeedResults .= "	<div style='padding:2px;'>
-				  		<span style='padding:8px 5px 19px 5px; float:left;'>
-				  		{$img_src}
+				  		<span style='padding:0px 5px 31px 5px; float:left;'>
+				  		<a href='#map' onclick=\"mapstraction.setCenter(Location{$results['LocationID']}, {pan:true}); mapstraction.setZoom(12)\" style='padding:8px 3px;' class='BabyBlue AlignRight'>{$img_src}</a>
 				  		</span>
-				  		<h4 style='margin:3px 0 0 0;'>{$results['PromoTitle']} &nbsp; &nbsp;
-				  		<span class='SmallFont'>
-				  		<a href='#map' onclick=\"mapstraction.setCenter(Location{$results['LocationID']}, {pan:true}); mapstraction.setZoom(12)\" style='padding:8px 3px;' class='BabyBlue AlignRight'>Where?</a>
-				  		</span>
-				  		</h4>
+				  		<h4 style='margin:3px 0 0 0;'>{$results['PromoTitle']}</h4>
 				  		<p class='SmallFont'><strong class='DarkGray'>Layer: </strong>
 				  		<a href='Layers.php?ID={$results['LayerID']}' class='BabyBlue'>{$results['LayerName']}</a>
-				  		<br><strong class='DarkGray'>Created By:</strong> {$results['UName']} <strong class='DarkGray'>on</strong> ({$CreateDate})</p>
-				  		</div>";
+				  		<br><strong class='DarkGray'>Created By:</strong> {$results['UName']}</p>
+				  		</div>
+						<div class='clear'></div>";
 				  
 				  	
 				  	}
@@ -1184,7 +1177,7 @@
 			  //close
 	
 			
-			$FeedResults = $FeedResults."Address search*/!".$LatLong;
+			//$FeedResults = $FeedResults."Address search*/!".$LatLong;
 			
 			
 		// ##########################################
@@ -1217,13 +1210,14 @@
 					$varLocationPoint .= ", Location{$results['LocationID']}";
 					$varLocation .= "Location{$results['LocationID']} = new mxn.LatLonPoint({$results['LocationLatitude']},{$results['LocationLongitude']});";
 			
-					$FeedResults .= "<div style='padding:2px;'>
-					
-						<p class='SmallFont' style='font-size:10pt'>{$results['LayerName']}
-				  		<a href='Layers.php?ID={$results['LayerID']}' class='BabyBlue'> See Details</a>
-				  		<br><strong class='DarkGray'>Created By:</strong> {$results['UName']} <strong class='DarkGray'>on</strong> ({$CreateDate})</p>
-				  		
-					</div>";
+					$FeedResults .= "
+						<div style='padding:2px;'>
+							<h4 style='margin:3px 0 0 0;'>{$results['LayerName']}</h4>
+							<p class='SmallFont'>Created By: <strong class='DarkGray'>{$results['UName']}</strong><br>
+							<a href='Layers.php?ID={$results['LayerID']}' class='BabyBlue'>See Details &raquo;</a>
+							</p>
+							</div>
+						<div class='clear'></div>";
 			
 							// Determine how many to show
 						//	if ($i > 11) { break; } else {  $i++; }
@@ -1261,9 +1255,9 @@
 			
 			
 			$Result_ActivityFeedData = Select($sql_ActivityFeedData);
-			echo '<pre>'; 			
-			print_r($Result_ActivityFeedData);
-			 echo '</pre>';
+			//echo '<pre>'; 			
+			//print_r($Result_ActivityFeedData);
+			//echo '</pre>';
 			
 			if (count($Result_ActivityFeedData)) {
 			foreach ($Result_ActivityFeedData as $results) {
@@ -1273,17 +1267,13 @@
 			$varLocationPoint .= ", Location{$results['LocationID']}";
 			$varLocation .= "Location{$results['LocationID']} = new mxn.LatLonPoint({$results['LocationLatitude']},{$results['LocationLongitude']});";
 		
-					$FeedResults .= "	<div style='padding:2px;'>
-			<span style='padding:8px 5px 19px 5px; float:left;'><img src='gfx/icons/Marker.png'></span>
-			<h4 style='margin:3px 0 0 0;'>{$results['PromoTitle']} &nbsp; &nbsp;
-			<span class='SmallFont'>
-			<a href='#map' onclick=\"mapstraction.setCenter(Location{$results['LocationID']}, {pan:true}); mapstraction.setZoom(12)\" style='padding:8px 3px;' class='BabyBlue AlignRight'>Where?</a>
-			</span>
-			</h4>
-			<p class='SmallFont'><strong class='DarkGray'>Layer: </strong>
-			<a href='Layers.php?ID={$results['LayerID']}' class='BabyBlue'>{$results['LayerName']}</a>
-			<br><strong class='DarkGray'>Created By:</strong> {$results['UName']} <strong class='DarkGray'>on</strong> ({$CreateDate})</p>
-			</div>";
+					$FeedResults .= "	
+						<div style='padding:2px;'>
+							<h4 style='margin:3px 0 0 0;'>Person Name &nbsp; &nbsp;</h4>
+							<p class='SmallFont'>Username: <strong class='DarkGray'>username</strong><br>
+							<a href='#'>List Layers &raquo;</a></p>
+							</div>
+						<div class='clear'></div>";
 				
 			// Determine how many to show
 						//if ($i > 7) { break; } else {  $i++; }
