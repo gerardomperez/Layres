@@ -213,6 +213,7 @@ h4 {
 	line-height:19px;
 	color:#333;
 	padding: 5px 0;
+	font-weight:bold !important;
 }
 .h4-submenu {
 	font-size:12px;
@@ -277,7 +278,7 @@ h1 strong, h2 strong, h3 strong, h4 strong, h5 strong, h6 strong {
 	font-weight:600;
 }
 .LayerDescription {
-	font-size: 13px;
+	font-size: 14px;
 	}
 /* ================= List Styles ================= */
 ul {
@@ -718,7 +719,7 @@ p + hr {
 }
 .sidebar {
 	width:280px;
-	margin:10px 0 0 0;
+	margin:0;
 	float:left;
 	min-height: 500px;
 }
@@ -2075,13 +2076,16 @@ width:250px;
 	cursor:pointer;
 }
 label {
-	margin:0 0 5px 0;
+	margin:0 0 2px 0;
 	font-size:14px;
 	color:#262626;
 	font-weight:bold;
 	cursor:pointer;
 	display:block;
 }
+.SmallLabel {
+	font-size:12px;
+	}
 label span {
 	color:#dc4b46;
 }
