@@ -489,7 +489,7 @@
 			$PromoCounter = 0;
 			$ThisPage = basename($_SERVER['SCRIPT_NAME']);
 			
-			$MyPromotions = "<div style='padding:10px 0 0 0px; margin:0;'>";
+			$MyPromotions = "<div style='padding:0; margin:0;'>";
 		
 			if (count($PromoDetailsArray)) {
 			
@@ -705,7 +705,7 @@
 			$PromoCounter = 0;
 			$CloseToggle = $CurrentLayer = "";
 			
-			$MyPromotions = "<div style='padding:10px 0 0 0px; margin:0;'>";
+			$MyPromotions = "<div style='padding:0; margin:0;'>";
 		
 			if (count($PromoDetailsArray)) {
 			
@@ -782,13 +782,14 @@
 				if ($BackgroundColor == "#FFFFFF") { $BackgroundColor = "#FBFBFB"; } else { $BackgroundColor = "#FFFFFF"; }
 
 				$MyPromotions .= "
-							<div style='padding:2px; background:{$BackgroundColor}'>	
+							<div style='padding:2px; background-color:{$BackgroundColor}'>	
 										<span style='padding:9px; float:left;'><img src='gfx/icons/{$results['TaskType']}.png'></span>
-										<h4 style='margin:11px 0 0 0 ;'>{$results['PromoTitle']} &nbsp; &nbsp; 
+										<span style='padding:18px 0;' class='SmallFont Disappear_Small Black AlignRight'><i>{$StartDate}</i></span>
+										<h4 style='margin:5px 0 0 0 ;'>{$results['PromoTitle']} &nbsp; &nbsp; 
 											{$DeleteMe} {$Where}
 										</h4>
 										<div class='TaskDescription'>
-											{$results['TaskDescription']} &nbsp; <span class='SmallFont AlignRight Disappear_Small'><i>{$StartDate}</i></span>
+											{$results['TaskDescription']}
 											{$EditMarker} 
 										</div>										
 							</div>
