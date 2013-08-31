@@ -628,7 +628,7 @@ if($("#RewardDetails").attr("class")=='')
 
                 <div id='HereDetails'>
                             <p>
-                                <label for="Marker_LocationName">Location Name <span>*</span></label>
+                                <label class="SmallLabel" for="Marker_LocationName">Location Name <span>*</span></label>
                                 <input type="text" name="Marker_LocationName1" id="Marker_LocationName1" placeholder="Enter name for future reference" value="<?php echo $Marker_LocationName1; ?>" class="inputText" />
                             </p>               
                             <div class="clear"></div>                
@@ -636,24 +636,24 @@ if($("#RewardDetails").attr("class")=='')
     
                 <div id='ByAddressDetails' class="Hide">
                             <p>
-                                <label for="Marker_LocationName">Location Name <span>*</span></label>
+                                <label class="SmallLabel" for="Marker_LocationName">Location Name <span>*</span></label>
                                 <input type="text" name="Marker_LocationName" id="Marker_LocationName" placeholder="Enter name for future reference" value="<?php echo $Marker_LocationName; ?>" class="inputText" />
                             </p>               
                             <div class="clear"></div>
                             <p>
-                                <label for="Marker_StreetAddress">Street Address <span>*</span></label>
+                                <label class="SmallLabel" for="Marker_StreetAddress">Street Address <span>*</span></label>
                                 <input type="text" name="Marker_StreetAddress" id="Marker_StreetAddress" placeholder="Street Address*" value="<?php echo $Marker_StreetAddress; ?>" class="inputText" />
                             </p>               
                             <div class="clear"></div>
                             <p>
-                                <label for="Marker_Zip">Zip <span>*</span></label>
+                                <label class="SmallLabel" for="Marker_Zip">Zip <span>*</span></label>
                                 <input type="text" name="Marker_Zip" id="Marker_Zip" placeholder="Zip*" value="<?php echo $Marker_Zip; ?>" class="inputText"  />
                             </p>               
                             <div class="clear"></div>            
                 </div>
                 <div id='PreviousDetails' class="Hide">
                             <p>
-                                <label for="Marker_LocationID">Location <span>*</span> &nbsp; <span class="LightGray SmallFont">(Choose from previous locations)</span></label>
+                                <label class="SmallLabel" for="Marker_LocationID">Location <span>*</span> &nbsp; <span class="LightGray SmallFont">(Choose from previous locations)</span></label>
                                 <select class="selectText" name="Marker_LocationID" id="Marker_LocationID">
                                     <?php echo $LocationOptions; ?>
                                 </select>
@@ -679,9 +679,9 @@ if($("#RewardDetails").attr("class")=='')
                 <p>
                     <span class="label">Type:</span> &nbsp; &nbsp; &nbsp;
                              <span onClick="CollapseType()" class='strong NoUnderline' id="Simple">Simple</span>  
-                             &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; 
+                              &nbsp; &nbsp; | &nbsp; &nbsp;  
                              <span onClick="CheckInType()"  class='BabyBlue Underline' id="CheckIn">Check-In</span>
-							 &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; 
+							  &nbsp; &nbsp; | &nbsp; &nbsp;  
                              <span onClick="QuestionType()"  class='BabyBlue Underline' id="Question">Question</span>                                      				
                 </p>
                 <div class="clear"></div>
@@ -747,9 +747,9 @@ if($("#RewardDetails").attr("class")=='')
                 <p>
                     <span class="label">Reward:</span> &nbsp; &nbsp; &nbsp;
                              <span onClick="Coupontype()" class='strong NoUnderline' id="Coupon">Coupon</span>  
-                             &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; 
+                              &nbsp; &nbsp; | &nbsp; &nbsp;  
                              <span onClick="Statustype()"  class='BabyBlue Underline' id="Status">Status</span>
-							 &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; 
+							  &nbsp; &nbsp; | &nbsp; &nbsp;  
                              <span onClick="Messagetype()"  class='BabyBlue Underline' id="Message">Message</span>                                      				
                 </p>
                 <div class="clear"></div>
@@ -760,12 +760,12 @@ if($("#RewardDetails").attr("class")=='')
       					</p>
                        <p>
                        <label for="coupon_msg"> Coupon message <span> *</span></label>
-                       <textarea name="coupon_msg" id="coupon_msg" placeholder="Enter a coupon message"><?php echo $coupon_msg;?></textarea>                
+                       <textarea name="coupon_msg" class="inputTextarea" id="coupon_msg" placeholder="Enter a coupon message"><?php echo $coupon_msg;?></textarea>                
                        </p>                  
                        <p>
                        
                        <label for="fine_print">Fine Print</label>
-                       <textarea name="fine_print" id="fine_print" placeholder="enter optional values"><?php echo $coupon_fine;?></textarea>                
+                       <textarea name="fine_print" class="inputTextarea" id="fine_print" placeholder="enter optional values"><?php echo $coupon_fine;?></textarea>                
                      
                        </p>
                        
@@ -777,13 +777,12 @@ if($("#RewardDetails").attr("class")=='')
       					<p>
       					<label for="status_1"> Status Level 1  <span> * </span></label>
       					<input type="text" class="inputText" placeholder="Enter name for future reference " name="status_1" id="status_1" value="<?php echo $status1; ?>">
-      					</p>
-                             
-                                					<p>
+      					</p> 
+                        <p>
       					<label for="status_2"> Status Level 2 <span> * </span></label> 
       					<input type="text" class="inputText" placeholder="Enter name for future reference " name="status_2" id="status_2" value="<?php echo $status2; ?>">
       					</p>
-      					   					<p>
+      					<p>
       					<label for="status_3"> Status Level 3 <span> * </span></label>
       					<input type="text" class="inputText" placeholder="Enter name for future reference " name="status_3" id="status_3" value="<?php echo $status3; ?>">
       					</p>             
