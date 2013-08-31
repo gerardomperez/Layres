@@ -135,13 +135,13 @@ if (isset($_POST["SearchQuery"])) {
                  <a name="Search"></a>
                  <form method="post" name="Search_FormName" id="Search_FormID" action="Map.php" style="padding:0 0 10px;">
                     <input type="text" name="SearchQuery" value="<?php echo $SearchQuery; ?>" id="SearchQuery" style="width:100%;" placeholder="Search Query" />
-                    <div align="center"><span class="Disappear_VerySmall">Search Type:  </span>
+                    <div align="center">
                     				<input type="radio" name="SearchType" value="Address" style="width:12px;" <?php echo $AddressChecked; ?>>Address &nbsp; 
                     				<input type="radio" name="SearchType" value="Layer" style="width:12px;" <?php echo $LayerChecked; ?>>Layer &nbsp;  
                                     <input type="radio" name="SearchType" value="Person" style="width:12px;" <?php echo $PersonChecked; ?>>Person 
                     </div>
                 </form> 
-                            	<div class="clear padding20"></div>
+                            	<div class="clear padding10"></div>
                             	  
 				   <div class='ErrorMessage<?php echo $Hide_Search; ?>'><?php echo $ErrorMessage_Search; ?></div>
                    <div class='ErrorMessageHide' id='Search_ErrorMessage'></div>
@@ -209,6 +209,7 @@ echo $val[0];
 					<li><a href="<?php echo $FacebookURL ?>" target="_blank"><img src="images/facebook_32.png" width="32" height="32" alt="Facebook"></a></li>
 					<li><a href="<?php echo $TwitterURL ?>" target="_blank"><img src="images/twitter_32.png" width="32" height="32" alt="Twitter"></a></li>
                     <li><a href="<?php echo $LinkedInURL ?>" target="_blank"><img src="images/linkedin_32.png" width="32" height="32" alt="Linkedin"></a></li>
+                    <li><a href="#" target="_blank"><img src="images/email_32.png" width="32" height="32" alt="Email"></a></li>
 				</ul>
 			</div>
 			<!-- END SOCIALS -->
