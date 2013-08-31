@@ -23,7 +23,7 @@
 	$LayerID = $_GET['ID'];
 	$LayerName = $Result_LocationData[0]["LayerName"];
 	$Creator = $Result_LocationData[0]["FullName"];
-	$CreatorUname = $Result_LocationData[0]["UName"];
+	$CreatorUName = $Result_LocationData[0]["UName"];
 	$Description = $Result_LocationData[0]["Description"];
 
 	$Followers = GetFollowers($LayerID);
@@ -145,9 +145,10 @@ $ErrorMessage_LayersIFollow = RemoveFollowing($_POST['UnLink'],$_SESSION['UName'
 										  <h4 style='margin:3px 0 0 0;'>{$results['LocationName']}</h4>";
 
 					if ($results['Zip']) {
-						$LocationInfo .= "	<p class='SmallFont'><a href='#map' onclick=\"mapstraction.setCenter(Location{$results['LocationID']}, {pan:true}); mapstraction.setZoom(12)\" style='padding:8px 3px;' class='BabyBlue'>{$results['StreetAddress']} &nbsp; {$results['Zip']}</a></p>";
-					} else $LocationInfo .= "	<p class='SmallFont'><a href='#map' onclick=\"mapstraction.setCenter(Location{$results['LocationID']}, {pan:true}); mapstraction.setZoom(12)\" style='padding:8px 3px;' class='BabyBlue'>(Created at location)</a></p>";
-				
+						$LocationInfo .= "	<p class='SmallFont'><a href='#map' onclick=\"mapstraction.setCenter(Location{$results['LocationID']}, {pan:true}); mapstraction.setZoom(12)\" style='padding:8px 3px;' class='BabyBlue'>{$results['StreetAddress']} &nbsp; {$results['Zip']}</a>";
+					} else $LocationInfo .= "	<p class='SmallFont'><a href='#map' onclick=\"mapstraction.setCenter(Location{$results['LocationID']}, {pan:true}); mapstraction.setZoom(12)\" style='padding:8px 3px;' class='BabyBlue'>(Created at location)</a>";
+					
+					$LocationInfo .= "<span class='SmallFont AlignRight'><a href='http://maps.google.com/maps?q={$results['LocationLatitude']},{$results['LocationLongitude']}' target='_Blank'>Directions &raquo;</a></span></p>";
 					$LocationInfo .= "	</div>";	   				  
 
 					  }   // End For each record
@@ -198,8 +199,7 @@ $ErrorMessage_LayersIFollow = RemoveFollowing($_POST['UnLink'],$_SESSION['UName'
 		<!-- Page Title -->
 			<header class="container page_info clearfix">
  
-					<h1 class="regular Red bottom_line">
-<?php echo $LayerName; ?> </h1>
+					<h1 class="regular Red bottom_line"><?php echo $LayerName; ?> </h1>
 					<div class='LayerDescription'><?php echo $Description; ?></div>
 				<div class="clear padding20"></div>
 			</header>
@@ -215,21 +215,17 @@ $ErrorMessage_LayersIFollow = RemoveFollowing($_POST['UnLink'],$_SESSION['UName'
                 
             	<?php echo $PromoList; ?>
             
-             <div class='clear padding10'></div> 
+             <div class='clear padding40'></div> 
             
 		</div>
 
 		
 		<!-- START SIDEBAR -->
 		<div class="sidebar">
-       
-			<div class="clear padding40"></div>
-			
 
 			<h4 class="bottom_line regular">Creator</h4>
-			<div style="padding:0 0 15px 15px;"><?php echo $Creator;?> <span class='AlignRight'><span class='Red strong'><?php echo $Followers['TotalCount']; ?></span> Followers</span></div>
-			
-			<div class="clear padding10"></div>
+			<div style="padding:0 0 15px 15px;"><a href="Layers.php?UName=<?php echo $CreatorUName;?>"><?php echo $Creator;?></a> <span class='AlignRight'><span class='Red strong'><?php echo $Followers['TotalCount']; ?></span> Followers</span></div>
+
 			<div class='ErrorMessage<?php echo $Hide_LayersIFollow; ?>' id='LayersIFollow_ErrorMessage'><?php echo $ErrorMessage_LayersIFollow; ?></div>            
             
                 <form method='post' name='FollowButton_FormName' id='FollowButton_FormID' action='Layers.php?ID=<?php echo $_GET['ID']; ?>#Button'>
@@ -237,17 +233,7 @@ $ErrorMessage_LayersIFollow = RemoveFollowing($_POST['UnLink'],$_SESSION['UName'
                     <div align="center"><?php echo $LayerLinkButton; ?></div>
                 </form>            
 
-			<div class="clear padding10"></div>
-			<div class='toogle_box'>
-						<div class='toggle closed_toggle NoBottomBorder'><div class='icon'></div>
-            	<h4 class="bottom_line regular">Locations</h4>
-            	</div>
-			<div style="display:none;">
 
-					<?php echo $LocationInfo; ?>          
-            
-			</div>
-            
 			<div class="clear padding40"></div>
 			
 			
@@ -274,11 +260,25 @@ $ErrorMessage_LayersIFollow = RemoveFollowing($_POST['UnLink'],$_SESSION['UName'
 					<li><a href="<?php echo $FacebookURL ?>" target="_blank"><img src="images/facebook_32.png" width="32" height="32" alt="Facebook"></a></li>
 					<li><a href="<?php echo $TwitterURL ?>" target="_blank"><img src="images/twitter_32.png" width="32" height="32" alt="Twitter"></a></li>
                     <li><a href="<?php echo $LinkedInURL ?>" target="_blank"><img src="images/linkedin_32.png" width="32" height="32" alt="Linkedin"></a></li>
+                    <li><a href="#" target="_blank"><img src="images/email_32.png" width="32" height="32" alt="Email"></a></li>
 				</ul>
 			</div>
 			<!-- END SOCIALS -->
 
 			<?php if ($LinkageStatus == "NotYourself") { echo $Followers['List']; } ?>
+
+			<div class="clear padding10"></div>
+			<div class='toogle_box'>
+						<div class='toggle closed_toggle NoBottomBorder'><div class='icon'></div>
+            	<h4 class="bottom_line regular">Locations</h4>
+            	</div>
+			<div style="display:none;">
+
+					<?php echo $LocationInfo; ?>          
+            
+			</div>
+            
+
 				
 				<div class="clear"></div>
 
