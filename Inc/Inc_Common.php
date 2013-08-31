@@ -42,7 +42,7 @@
 	$LayerLinkButton = $MyLayers_Description = $Address_Search = $AllClass = $PromotionsClass = $MarkersClass = "";
 	$varLocationPoint = $varLocation = $FeedResults = $MyMarkers_DisplayOptions = $DeleteMe = $Result = $SearchQuery = $Marker_Quantity =  $Marker_Confirmation = "";
 	$Marker_LocationName = $Marker_LocationName1 = $Marker_Location = $LocationOptions = $Marker_LocationID = $Marker_Question = "";
-	$AddressChecked = $LayerChecked = $PersonChecked = "";
+	$AddressChecked = $LayerChecked = $PersonChecked = $coupon_date = $coupon_msg = $coupon_fine = $status1 = $status2 = $status3 = "";
 
 // -------------------------------
 // -- Misc Variables
@@ -311,7 +311,7 @@
 	function FormatDate($RawDate) {
 
 			$date = new DateTime($RawDate);
-			return $date->format('M j Y');
+			return $date->format('M j');
 			//return $date->format('M d, Y');
 				
 		}
