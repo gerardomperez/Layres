@@ -1,5 +1,5 @@
 <?php 
-
+ 
     require_once 'Inc/Inc_Common.php';
 	require_once 'Inc/Inc_Functions_Profile.php';
 	require_once 'Inc/Inc_Functions_Promotions.php';
@@ -75,6 +75,7 @@
 	}  
 
   if (isset($_SESSION['UName'])) {
+ 
  
 			// -----------------------------------------		
 			// --------  Layer Dropdown Options  -------
