@@ -219,7 +219,7 @@
 
 	function ShowLayerPromos($LayerID) {
 
-			$sql_PromotionData = "SELECT Layers.Description, LayerName, Layers.LayerID, Promotions.PromotionID, Location.LocationID, 
+			$sql_PromotionData = "SELECT Layers.Description, LayerName, Layers.LayerID, Promotions.PromotionID, PromoRange, Location.LocationID, 
 										TaskType, PromoTitle, TaskDescription, Promotions.StartDate, Promotions.EndDate 
 									FROM Promotions, Location_Promotions, Location, Layers 
 									WHERE Promotions.PromotionID = Location_Promotions.PromotionID 
@@ -1000,7 +1000,7 @@
 		$varLocationPoint = "var Location0";	
 		$FeedResults = "";
 		$i = 1;
-		if (isset($_SESSION['UName'])) {
+		if (isset($_SESSION['UName']) ) {
 		$PromoRange = "('All','Personal')";
 		}
 		else
@@ -1083,7 +1083,9 @@
 				  			$img_src="<img src='gfx/icons/Marker-Red.png'>" ;
 						  
 						  $FeedResults .= "	<div style='padding:2px;'>		
-												<span style='padding:0px 5px 31px 5px; float:left;'><a href='#map' onclick=\"mapstraction.setCenter(Location{$results['LocationID']}, {pan:true}); mapstraction.setZoom(12)\" style='padding:8px 3px;' class='BabyBlue AlignRight'><img src='gfx/icons/Marker.png'></a></span>
+												<span style='padding:0px 5px 31px 5px; float:left;'>
+												<a href='#map' onclick=\"mapstraction.setCenter(Location{$results['LocationID']}, {pan:true}); mapstraction.setZoom(12)\" style='padding:8px 3px;' class='BabyBlue AlignRight'>
+												$img_src </a></span>
 												<h4 style='margin:3px 0 0 0;'>{$results['PromoTitle']} &nbsp; &nbsp; 
 												</h4>
 												<p class='SmallFont'><strong class='DarkGray'>Layer: </strong>
@@ -1251,7 +1253,7 @@
 		
 				
 			
-			echo $sql_ActivityFeedData;
+			//echo $sql_ActivityFeedData;
 			
 			
 			$Result_ActivityFeedData = Select($sql_ActivityFeedData);

@@ -756,7 +756,7 @@
 				} else {
 					
 					$Where = "<span class='SmallFont'>
-								<a href='#Map' onclick=\"mapstraction.setCenter(Location{$results['LocationID']}, {pan:true}); mapstraction.setZoom(12)\" style='padding:8px 3px;' class='BabyBlue'>Where?</a>
+								<a href='#Map' onclick=\"mapstraction.setCenter(Location{$results['LocationID']}, {pan:true}); mapstraction.setZoom(12)\" style='padding:8px 3px;' class='BabyBlue_for_layer'>Where?</a>
 							  </span>";
 					$DeleteMe = "";
 					$EditMarker = "";
@@ -781,9 +781,15 @@
 
 				if ($BackgroundColor == "#FFFFFF") { $BackgroundColor = "#FBFBFB"; } else { $BackgroundColor = "#FFFFFF"; }
 
+//echo $results['PromoRange'].$results['TaskType'];
+if($results['PromoRange']=='Personal')
+$img="<img src='gfx/icons/{$results['TaskType']}.png'>";
+else
+$img="<img src='gfx/icons/{$results['TaskType']}-Red.png'>";	
+
 				$MyPromotions .= "
 							<div style='padding:2px; background-color:{$BackgroundColor}'>	
-										<span style='padding:9px; float:left;'><img src='gfx/icons/{$results['TaskType']}.png'></span>
+										<span style='padding:9px; float:left;'>'.$img.'</span>
 										<span style='padding:18px 0;' class='SmallFont Disappear_Small Black AlignRight'><i>{$StartDate}</i></span>
 										<h4 style='margin:5px 0 0 0 ;'>{$results['PromoTitle']} &nbsp; &nbsp; 
 											{$DeleteMe} {$Where}
