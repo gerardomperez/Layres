@@ -171,7 +171,7 @@
 		    $CurrentTime = date('Y/m/d G:i:s');
 
 			// Get Promotion Data
-			$sql_PromotionData = "SELECT Layers.Description, LayerName, Layers.LayerID, Promotions.PromotionID, Location.LocationID, TaskType, PromoTitle, TaskDescription, Promotions.StartDate, Promotions.EndDate 
+			$sql_PromotionData = "SELECT Layers.Description, LayerName, Layers.LayerID, Promotions.PromotionID, Location.LocationID, TaskType, PromoTitle, TaskDescription, Promotions.StartDate, Promotions.EndDate, Promotions.PromoRange 
 								  FROM Location, Location_Promotions, Promotions, Layers 
 								  WHERE Promotions.UName = '{$_SESSION['UName']}'
 									  AND Promotions.PromotionID = Location_Promotions.PromotionID
