@@ -520,7 +520,7 @@ $Result_FriendData = Select($sql_FriendData);
 
 			} else { $FriendsInfo .= "<div class='ToggleList'><div align='center' style='padding:10px;'>Nobody is following this layer.</div></div>";  }
 
-			$FriendsInfo .= "</div></div>";
+			$FriendsInfo .= "</div></div><div class='clear padding40'></div>";
 
 		  	$FollowersArray = array('TotalCount' => $TotalCount, 'List' => $FriendsInfo);
 
