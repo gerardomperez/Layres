@@ -451,7 +451,7 @@
 
 				$Background = "Black";	
 
-				$FriendsInfo = "<ul style='padding:10px 0; margin:5px;'>";				
+				$FriendsInfo = "<ul style='padding:0 10px; margin:0 10px;'>";				
 
 				foreach($Result_FriendData as $FriendRecord) {
 			
@@ -463,14 +463,13 @@
 					
 					$FriendsInfo .= "
 						<div class='toogle_box'>
-						<div class='toggle closed_toggle NoBottomBorder'><div class='icon'></div>
-						<strong>{$FriendRecord['LayerName']}</strong> 
-							<a href='{$ThisPage}?RemoveLayer={$FriendRecord['LayerID']}#Follow_Layers' class='CancelX Red'>X</a>
-						</div>
+						<div class='toggle closed_toggle NoBottomBorder'><div class='icon'></div><strong>{$FriendRecord['LayerName']}</strong></div>
 						<div class=toggle_container' style='display:none' >
+						<span class='AlignRight SmallFont LeftSpace BabyBlue'><a href='{$ThisPage}?RemoveLayer={$FriendRecord['LayerID']}#Follow_Layers'>Unfollow</a></span>
+						<div style='padding:0 15px;'>By: {$FriendRecord['UName']} &nbsp; &nbsp; <a href='Layers.php?ID={$FriendRecord['LayerID']}' class='SmallFont BabyBlue'>See Details &raquo;</a></div>
+						<div>
 						{$results_layer}
-						<span>By: {$FriendRecord['UName']} &nbsp; &nbsp; <a href='Layers.php?ID={$FriendRecord['LayerID']}'>See Details &raquo;</a>
-						</span>
+						</div>
 						</div>";					
 				}
 
