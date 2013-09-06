@@ -1,7 +1,5 @@
 <?php 
 
-
-
     require_once 'Inc/Inc_Common.php';
 	require_once 'Inc/Inc_Functions_Profile.php';
 	require_once 'Inc/Inc_Functions_Promotions.php';
@@ -17,7 +15,7 @@
 	//--------------
 	Redirect("Registration.php", "NotLoggedIn");
 
-	
+	if (isset($_GET['action'])) { $action = $_GET['action']; } else { $action = ""; }
 	
 	//$MapOnPage = "Yes";
 	
@@ -106,9 +104,9 @@
 
 		  $FullName = str_replace('\'','&rsquo;',$Result_GetProfileData['FullName']);
 
-		  if($_GET['action']=='Newpassword')
+		  if($action=='Newpassword')
 		  	$Result_GetProfileData['PWord']="";
-		  $EditProfileInfo = "<p><label for='Username'>Username<span>*</span></label>
+		    $EditProfileInfo = "<p><label for='Username'>Username<span>*</span></label>
 								  {$Result_GetProfileData['UName']}</p>
 							  <p><label for='LayersIFollow_LayerName'>Name<span>*</span></label>
 								  <input class='inputText' type='text' name='FullName' id='FullName_Profile' placeholder='Name*' value=\"{$Result_GetProfileData['FullName']}\" /></p>  
@@ -525,12 +523,7 @@
 <head>
 <title>Home</title>
 <?php Require 'Inc/Inc_HeaderTag.php'; ?>
-<style>
-.BabyBlue_for_layer
-{
-display:none;
-}
-</style>
+<style>  .BabyBlue_for_layer { display:none; }  </style>
 <script type="text/javascript" src="js/TotalJS.js"></script>
 <script language="javascript">
 
@@ -676,25 +669,17 @@ LayersIFollow
 			</header>
 			
 		<!-- Page Title -->
-	   <?php if($_GET['action']!='Newpassword') { ?>
+	   <?php if($action!='Newpassword') { ?>
 		<!-- Start Primary Tab section -->
 		<div class="content clearfix">
             
 				<div class="tabs">
 					<ul>
-						<li><a href="#Follow_Layers">Layers | Follow</a></li>
 						<li><a href="#Markers">My Layers</a></li>
                         <li><a href="#Rewards">My Check-Ins</a></li>
 					</ul>
 					<div class="clear"></div>
 					<div class="bordered_box">
-                    <div id="Follow_Layers">
-                    <div class="content_text">
-                    <?php echo $LayersFollowing; ?>
-                         <div class='ErrorMessage<?php  echo $Hide_LayersIFollow; ?>' id='LayersIFollow_ErrorMessage'><?php  echo $ErrorMessage_LayersIFollow; ?></div>
-                         
-                    </div>
-                    </div>
 						<div id="Markers">	<!--  Sponsored Promotions  -->
 							<div class="content_text">
                                     
@@ -716,6 +701,13 @@ LayersIFollow
 
 					</div>
 				</div>
+
+				<a name="Follow_Layers"></a>
+				<h4 class="bottom_line regular">Layers I Follow</h4>
+                        <div class="content_text">
+ 	                           <div class='ErrorMessage<?php  echo $Hide_LayersIFollow; ?>' id='LayersIFollow_ErrorMessage'><?php  echo $ErrorMessage_LayersIFollow; ?></div>                         
+                        	<?php echo $LayersFollowing; ?>
+                        </div>
             
 		</div>
         <!-- End Primary Tab section -->
@@ -732,7 +724,7 @@ LayersIFollow
 <!--  Start "Profile" Section -->            
             <a name="Profile" id="Profile"></a>
 			<h4 class="bottom_line regular">Profile <span class="h4-submenu"><a href="Javascript:void(0);" id="Profile_ToggleButton">Edit</a></span></h4>
-    <?php if($_GET['action']!='Newpassword') { ?>
+    <?php if($action!='Newpassword') { ?>
                 <div id="Profile_Default">
 						<div class='ErrorMessage<?php echo $Hide_Profile; ?>'><?php echo $ErrorMessage_Profile; ?></div>
                         <?php echo $ProfileInfo; ?>
@@ -741,7 +733,7 @@ LayersIFollow
             
                 <div id="Profile_Hidden" class="Hide">
 <?php } ?>
-              <?php if($_GET['action']=='Newpassword') { ?>
+              <?php if($action=='Newpassword') { ?>
                <div id="Profile_Default">
 						<div class='ErrorMessage<?php echo $Hide_Profile; ?>'><?php echo $ErrorMessage_Profile; ?></div>
                         
