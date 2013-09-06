@@ -265,20 +265,20 @@ $ErrorMessage_LayersIFollow = RemoveFollowing($_POST['UnLink'],$_SESSION['UName'
 			</div>
 			<!-- END SOCIALS -->
 
-			<?php if ($LinkageStatus == "NotYourself") { echo $Followers['List']; } ?>
-
-			<div class="clear padding10"></div>
+			<div class="clear padding40"></div>
 			<div class='toogle_box'>
-						<div class='toggle closed_toggle NoBottomBorder'><div class='icon'></div>
-            	<h4 class="bottom_line regular">Locations</h4>
-            	</div>
+            	  <div class='toggle closed_toggle'><div class='icon'></div>Locations</div>
+
 			<div style="display:none;">
 
 					<?php echo $LocationInfo; ?>          
             
 			</div>
             
-
+            <div class="clear padding40"></div>
+            
+			<?php if ($LinkageStatus == "NotYourself") { echo $Followers['List']; } ?>
+            
 				
 				<div class="clear"></div>
 
