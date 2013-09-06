@@ -14,22 +14,23 @@
 <link rel="stylesheet" href="css/ie_7.css" type="text/css" />
 <![endif]-->
 
-<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
-<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+  <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+  <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
 
   <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
-<script type="text/javascript" src="js/all-in-one-min.js"></script>
-<script type="text/javascript" src="js/setup.js"></script>
+  <script type="text/javascript" src="js/all-in-one-min.js"></script>
+  <script type="text/javascript" src="js/setup.js"></script>
 
   <script type="text/javascript" src="js/highlight.pack.js"></script>
   <script type="text/javascript" src="js/tabifier.js"></script>
   <script src="js/js.js"></script>
   <script src="js/jPages.js"></script>
   
-<script type="text/javascript" src="js/main.js"></script>
-<script type="text/javascript" src="js/TotalJS.js"></script>
-<link rel="shortcut icon" href="gfx/favicon.ico" />
+  <script type="text/javascript" src="js/main.js"></script>
+  <script type="text/javascript" src="js/TotalJS.js"></script>
+  
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+  <link rel="shortcut icon" href="gfx/favicon.ico" />
   <link rel="stylesheet" href="css/jPages.css">
  <?php  
  
@@ -162,26 +163,27 @@ else{
 								if (promo.TaskType == 'Question') {	mk.setIcon('gfx/icons/Question.png',[25,25]); }
 								if (promo.TaskType == 'Marker') { mk.setIcon('gfx/icons/Marker.png',[25,25]);  }	
 								}
-								/* if (promo.TaskType == 'Marker') {	
-									if (promo.TodaysDay == promo.PromoDay) { mk.setIcon('gfx/icons/YellowFlag.png',[25,25]);  }
-									else { mk.setIcon('gfx/icons/Marker.png',[25,25]);  }
-									if (promo.TaskType == 'CheckIn') {	mk.setIcon('gfx/icons/Check-In.png',[25,25]); }
-								if (promo.TaskType == 'Progress') {	mk.setIcon('gfx/icons/Progress.png',[25,25]); }
-								if (promo.TaskType == 'Appointment') { mk.setIcon('gfx/icons/Appointment.png',[25,25]); }
-								if (promo.TaskType == 'Question') {	mk.setIcon('gfx/icons/Question.png',[25,25]); }
-
 								
-								}	*/	
+								/* 
+									if (promo.TaskType == 'Marker') {	
+										if (promo.TodaysDay == promo.PromoDay) { mk.setIcon('gfx/icons/YellowFlag.png',[25,25]);  }
+											else { mk.setIcon('gfx/icons/Marker.png',[25,25]);  }
+										if (promo.TaskType == 'CheckIn') {	mk.setIcon('gfx/icons/Check-In.png',[25,25]); }
+										if (promo.TaskType == 'Progress') {	mk.setIcon('gfx/icons/Progress.png',[25,25]); }
+										if (promo.TaskType == 'Appointment') { mk.setIcon('gfx/icons/Appointment.png',[25,25]); }
+										if (promo.TaskType == 'Question') {	mk.setIcon('gfx/icons/Question.png',[25,25]); }
+									}	
+								*/	
 	  
-								if(promo.PromoRange == 'All')
-								{
-								
-								if (promo.TaskType == 'Marker') { mk.setIcon('gfx/icons/Marker-Red.png',[25,25]); }
-								if (promo.TaskType == 'CheckIn') {	mk.setIcon('gfx/icons/Check-In-Red.png',[25,25]); }
-								if (promo.TaskType == 'Appointment') { mk.setIcon('gfx/icons/Appointment-Red.png',[25,25]); }
-								if (promo.TaskType == 'Question') {	mk.setIcon('gfx/icons/Question-Red.png',[25,25]); }						
-								}
-								
+					if(promo.PromoRange == 'All')
+						  {
+							  if (promo.TaskType == 'Marker') { mk.setIcon('gfx/icons/Marker-Red.png',[25,25]); }
+							  if (promo.TaskType == 'CheckIn') {	mk.setIcon('gfx/icons/Check-In-Red.png',[25,25]); }
+							  if (promo.TaskType == 'Appointment') { mk.setIcon('gfx/icons/Appointment-Red.png',[25,25]); }
+							  if (promo.TaskType == 'Question') {	mk.setIcon('gfx/icons/Question-Red.png',[25,25]); }						
+						  }
+						  
+						  
 								mapstraction.addMarker(mk);
 								mk.setAttribute('Category','promo.TaskType');
 							}
@@ -189,9 +191,9 @@ else{
 							// Customize Map
 							 
 							mapstraction.setMapType(1);	   //1 - Road, 2 - Satellite, 3 - Hybrid
-//mapstraction.addSmallControls();
- mapstraction.enableScrollWheelZoom();
-//mapstraction.addControls({  zoom:	 true,  scale:	true,  });
+							mapstraction.addSmallControls();
+							mapstraction.enableScrollWheelZoom();
+							//mapstraction.addControls({  zoom:	 true,  scale:	true,  });
 
 							// Determine whether to pull static value or from cookie
 							var LatitudeCookie = getCookie(\"LatitudeCookie\");
