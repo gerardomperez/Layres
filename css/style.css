@@ -2385,8 +2385,6 @@ blockquote {
 	border-bottom: none;
 	}
 .toggle_active {
-	font-size:16px;
-	color:#000;
 	background-color:#eee;
 	cursor:pointer;
 }
