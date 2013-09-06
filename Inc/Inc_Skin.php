@@ -751,7 +751,7 @@
 					}
 					
 					$DeleteMe = "<span class='AlignRight'><a href='MyAccount.php?RemoveMarker={$results['PromotionID']}' class='CancelX Red'>X</a></span>";
-					$EditMarker = "<span style='cursor:pointer;' class='SmallFont Disappear_Small BabyBlue' onclick=\"\">Edit</span>";
+					$EditMarker = " &nbsp; <span style='cursor:pointer;' class='SmallFont Disappear_Small BabyBlue' onclick=\"\">Edit</span>";
 					 
 				} else {
 					
@@ -781,15 +781,13 @@
 
 				if ($BackgroundColor == "#FFFFFF") { $BackgroundColor = "#FBFBFB"; } else { $BackgroundColor = "#FFFFFF"; }
 
-//echo $results['PromoRange'].$results['TaskType'];
-if($results['PromoRange']=='Personal')
-$img="<img src='gfx/icons/{$results['TaskType']}.png'>";
-else
-$img="<img src='gfx/icons/{$results['TaskType']}-Red.png'>";	
+				//echo $results['PromoRange'].$results['TaskType'];
+				if($results['PromoRange']=='Personal') { $img="<img src='gfx/icons/{$results['TaskType']}.png'>"; }
+				else { $img="<img src='gfx/icons/{$results['TaskType']}-Red.png'>";	}
 
 				$MyPromotions .= "
 							<div style='padding:2px; background-color:{$BackgroundColor}'>	
-										<span style='padding:9px; float:left;'>'.$img.'</span>
+										<span style='padding:9px; float:left;'>$img</span>
 										<span style='padding:18px 0;' class='SmallFont Disappear_Small Black AlignRight'><i>{$StartDate}</i></span>
 										<h4 style='margin:5px 0 0 0 ;'>{$results['PromoTitle']} &nbsp; &nbsp; 
 											{$DeleteMe} {$Where}
