@@ -67,7 +67,7 @@ ini_set('display_errors', 1);
 			</div>
 		</div>
 		<div class="col_1_4 last">
-			<div class="features">
+			<div class="features last">
 				<h3 style="border-bottom:#666 1px solid;">When?</h3>
 				<p>You control the timing of when your individual promotions and markers appear and disappear from your layer. Also, see what's happening not in all the layers you follow through the "Recent Activity Feed" on <a href="Map.php#Map">your map</a> section.</p> 
 			</div>
