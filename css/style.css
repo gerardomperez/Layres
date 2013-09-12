@@ -455,6 +455,7 @@ p + hr {
 .container {
 	width:940px;
 	margin:0 auto;
+	paddin-bottom:20px;
 }
 .header_bg {
 	background:#333 url(../images/header-bg.jpg) repeat-x;
@@ -762,9 +763,8 @@ p + hr {
 	margin:0 20px 0 0;
 }
 .col_1_4 {
-	width:220px;
+	width:25%;
 	float:left;
-	margin:0 20px 0 0;
 }
 .col_1_5 {
 	width:172px;
@@ -863,6 +863,7 @@ p + hr {
 .featured_bg img {
 	position:relative;
 }
+.features { margin-right: 5%; }
 .features .title {
 	border-bottom:1px solid #000;
 	padding:10px;
@@ -2817,7 +2818,7 @@ a.zoom img {
 	padding-left:15px;
 }
 /* ================= Blog Reply box ================= */
-	.comments_form input {
+.comments_form input {
 	width: 127px;
 }
 .comments_form textarea {
@@ -2825,26 +2826,26 @@ a.zoom img {
 	width: 340px;
 }
 /* ================= Container and Columns ================= */
-	.container {
-	width: 748px;
+.container {
+	width: 90%;
 }
 .col_1_2 {
-	width: 364px;
+	width: 50%;
 }
 .col_1_3 {
-	width: 236px;
+	width: 33%;
 }
 .col_2_3 {
-	width: 492px;
+	width: 66%;
 }
 .col_1_4 {
-	width: 172px;
+	width: 25%;
 }
 .col_1_5 {
-	width: 133px;
+	width: 20%;
 }
 .col_3_4 {
-	width: 556px;
+	width: 75%;
 }
 .content .col_1_2 {
 	width:239px;
@@ -3000,7 +3001,7 @@ img.liquid {
 .main-menu {
 	margin:0;
 	float:left;
-	width:100%;
+	width:90%;
 }
 .main-menu ul {
 	position:static !important;
@@ -3012,12 +3013,13 @@ img.liquid {
 	display:block !important;
 /*	float:none !important; */
 	margin:0 !important;
+	width:25%;
+	text-align:center;
 }
 .main-menu li.submenu > a {
 	cursor:pointer;
 }
 .main-menu li a {
-	padding:0 20px 0 0;
 	line-height:33px;
 }
 .main-menu li a.last {
@@ -3063,8 +3065,8 @@ img.liquid {
 }
 .content {
 	float:none;
-	margin-right:0;
-	width:300px;
+	margin:0px;
+	width:100%;
 }
 .content img {
 	height: auto;
@@ -3226,15 +3228,16 @@ img.liquid {
 	display:none !important;
 }
 /* ================= Container and Columns ================= */
-	.col_1_2, .col_1_3, .col_1_4, .col_1_5, .col_3_4, .col_2_3 {
+.container {
+	width:90%;
+}
+.col_1_2, .col_1_3, .col_1_4, .col_1_5, .col_3_4, .col_2_3 {
 	float: none;
 	margin-right: 0;
-}
-.container, .col_1_2, .col_1_3, .col_1_4, .col_1_5, .col_3_4, .col_2_3 {
-	width:300px;
+	width:100%;
 }
 .content .col_1_2, .content .col_1_3, .content .col_1_4, .content .col_1_5, .content .col_3_4, .content .col_2_3 {
-	width:300px;
+	width:100%;
 }
 /* ================= Contact Page ================= */
 .inputText {
@@ -3443,7 +3446,7 @@ img.liquid {
 	height:305px;
 }
 /* ================= Container and Columns ================= */
-	.companies .cbody {
+.companies .cbody {
 	width:420px;
 	margin:0 auto;
 }
@@ -3523,12 +3526,7 @@ img.liquid {
 	float:none;
 	margin:0;
 }
-.container, .col_1_2, .col_1_3, .col_1_4, .col_1_5, .col_3_4, .col_2_3 {
-	width:226px;
-}
-.content .col_1_2, .content .col_1_3, .content .col_1_4, .content .col_1_5, .content .col_3_4, .content .col_2_3 {
-	width:226px;
-}
+
 
 /* =================  Blog Post and Sidebar ================= */
 	.blog_post .right_side .media_query_visible {
@@ -3538,8 +3536,8 @@ img.liquid {
 	display:none;
 }
 .content {
-	width:226px;
-	margin-right:0;
+	width:100%;
+	margin:0;
 }
 .content .left_side {
 	display:none;
@@ -3558,11 +3556,11 @@ img.liquid {
 	width:100%;
 }
 .sidebar {
-	width:226px;
+	width:100%;
 	float:none;
 }
 .sidebar input,textarea {
-	width: 170px;
+	width: 90%;
 	}
 .sidebar .widget {
 	width:226px;
