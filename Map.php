@@ -92,7 +92,7 @@ if (isset($_POST["SearchQuery"])) {
 
 
 		function setHeight() {
-			var MapHeight = window.innerHeight - 100;
+			var MapHeight = window.innerHeight - 50;
 			
 			document.getElementById('mymap').style.height = MapHeight + 'px';
 		}
@@ -125,26 +125,24 @@ if (isset($_POST["SearchQuery"])) {
 		<!-- START SIDEBAR -->
 		<div class="sidebar">
 
-			<div class="padding10"></div>
-
-
-			<div class="clear padding20"></div>
-        
         
                  <div align="center">
                  <a name="Search"></a>
-                 <form method="post" name="Search_FormName" id="Search_FormID" action="Map.php" style="padding:0 0 10px;">
-                    <input type="text" name="SearchQuery" value="<?php echo $SearchQuery; ?>" id="SearchQuery" style="width:100%;" placeholder="Search Query" />
+
+				   <div class="clear padding10"></div>                 
+   				   <div class='ErrorMessage<?php echo $Hide_Search; ?>'><?php echo $ErrorMessage_Search; ?></div>
+                   <div class='ErrorMessageHide' id='Search_ErrorMessage'></div>
+                   
+                 <form method="post" name="Search_FormName" id="Search_FormID" action="Map.php">
+                    <input type="text" name="SearchQuery" value="<?php echo $SearchQuery; ?>" id="SearchQuery" placeholder="Search Query" />
                     <div align="center">
                     				<input type="radio" name="SearchType" value="Address" style="width:12px;" <?php echo $AddressChecked; ?>>Address &nbsp; 
                     				<input type="radio" name="SearchType" value="Layer" style="width:12px;" <?php echo $LayerChecked; ?>>Layer &nbsp;  
                                     <input type="radio" name="SearchType" value="Person" style="width:12px;" <?php echo $PersonChecked; ?>>Person 
                     </div>
                 </form> 
-                            	<div class="clear padding10"></div>
-                            	  
-				   <div class='ErrorMessage<?php echo $Hide_Search; ?>'><?php echo $ErrorMessage_Search; ?></div>
-                   <div class='ErrorMessageHide' id='Search_ErrorMessage'></div>
+                   
+                   <div class="clear padding10"></div>
                    <div align="center"><a href="Javascript:void(0);" class="button orange" id="Search_Submit">Submit</a> </div>                
                 
                 </div>
@@ -156,33 +154,27 @@ if (isset($_POST["SearchQuery"])) {
 		 	<div id="dataholder">
 
 
-					<?php 
-					if(strpos($ActivityFeed,'Address') !==false)
-					{
-					$preg=preg_match_all('!\d+!', $ActivityFeed, $matches);
-					if($preg==0){
-echo '<input type="hidden" id="hidden_add" value="Not">';
-						echo "No Results Found ";
+<?php 
+					if(strpos($ActivityFeed,'Address') !== false)	{
+						$preg=preg_match_all('!\d+!', $ActivityFeed, $matches);
+						if($preg==0){
+							echo '<input type="hidden" id="hidden_add" value="Not">';
+							echo "No Results Found ";
+						} else{
+	
+							$val=explode('*/!', $ActivityFeed);
+							echo $val[0];						
+	// 						/echo rtrim("*/!",$ActivityFeed);
 						}
-					else{
-
-$val=explode('*/!', $ActivityFeed);
-echo $val[0];						
-// 						/echo rtrim("*/!",$ActivityFeed);
-						}
-						
+					}
 					
-					}
-					if(strpos($ActivityFeed,'Address') === false)
-					{
-						echo $ActivityFeed;
-					}
-					 ?>
+					if(strpos($ActivityFeed,'Address') === false){ echo $ActivityFeed; }
+?>
 
             
 			</div>
 
-          	 <div class="holder" ></div>
+          	<div class="holder"></div>
       
 			<div class="clear padding40"></div>
 						
